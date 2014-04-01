@@ -1,0 +1,397 @@
+1.UserLogin
+/user/stulogin?username=8777866&password=wjh19890714&usertype=(null)&uid=(null)
+
+HTTP/1.1 200 OK
+Date: Mon, 31 Mar 2014 14:18:04 GMT
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+X-AspNet-Version: 4.0.30319
+X-AspNetMvc-Version: 3.0
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+Content-Length: 534
+
+{
+  "data": {
+    "userName": "8777866",
+    "phoneNum": null,
+    "nickName": null,
+    "email": null,
+    "password": "837d45003cd93bddccd535ec1b8d93d2025dc933d449fda2b4da5f87f26366e2",
+    "xxzh": "51168600",
+    "jgid": null,
+    "webapiurl": null,
+    "xybh": null,
+    "sfzh": null,
+    "iconpath": null,
+    "username": "8777866",
+    "phonenum": null,
+    "nickname": null,
+    "qquid": null,
+    "sinauid": null,
+    "apiurl": null,
+    "jxmc": null,
+    "xm": null
+  },
+  "code": 0,
+  "message": ""
+}
+
+2.GET /User/isbinding?username=8777866 HTTP/1.1
+HTTP/1.1 200 OK
+Date: Mon, 31 Mar 2014 14:18:14 GMT
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+X-AspNet-Version: 4.0.30319
+X-AspNetMvc-Version: 3.0
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+Content-Length: 634
+
+{
+  "data": {
+    "userName": "8777866",
+    "phoneNum": null,
+    "nickName": null,
+    "email": null,
+    "password": null,
+    "xxzh": "51168600",
+    "jgid": "115001",
+    "webapiurl": "",
+    "xybh": null,
+    "sfzh": "370784198909244820",
+    "iconpath": null,
+    "username": "8777866",
+    "phonenum": null,
+    "nickname": null,
+    "qquid": null,
+    "sinauid": null,
+    "apiurl": "gpsapi::http://124.205.101.77:8007;bookingcarapi::http://haijia.bjxueche.net:8001;bookingexamapi::http://haijia.bjxueche.net:8006",
+    "jxmc": "海淀驾校",
+    "xm": "吴炯红"
+  },
+  "code": 0,
+  "message": ""
+}
+
+3.GET /system/login?username=bjcsxq&password=bjcsxq2012 HTTP/1.1
+HTTP/1.1 200 OK
+Date: Mon, 31 Mar 2014 14:18:12 GMT
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+X-AspNet-Version: 4.0.30319
+X-AspNetMvc-Version: 2.0
+Set-Cookie: UserInfo=Cx7QwxIOJ3wc6Ex2RPQrpigfyCGkPQo7XQlGScAQCQw8yqvteGeLTInRwD9UsdzrgS05Dg9kKDqS/Ovm8kscaZ9sSPANNWvBMwtYreYtzLDfk7uBtTpR1gU/TTb6vxDgiZzhhbl07BEr7SfmkUOa1sRcjNYN4gHeUFRUkK1DOOmjMCeW9A+1GJenXtLbuB4ziNrNCt84U5Jpt8+iRlo4RNYIyhbSXxq1ONe/PgbwgAx/yJLSVlRfWrSR9kTxUSDtVpNxVqVKcBfZfpGfmQwun218Shop1o4oBeX5qHRgtP828HagWanJvGBPAACzHJBRGtu85FJa76FFeSuSS0XqGEvZPiVSjElJkc/qr3eUSyfy8Vf498ExTu4aBFZuxKJW4E1RdzSDJLf9FtU1/mV3P55tD0TIUDNsUQyPrDi0CtPSnFvclcwxXFOUy1M8nGW33BCyhgmHmxgP3RMD2Mfvy13y51Spq+jtB231IbX3Q9wHnV4yC5UGcJLKaJj8w+V80sLGBBprWXQhbxwljD086gDKn39OrLEIpbmyjgUCY4Dq3WjEJkpFBl7aofqT8j7bCD2rNSMK34P/S19cByMKHuqVDg+jBc7rQFu1VgBEKRxBrKKrz42AGhxDcPdGkyUcoKV97Ksqh54fR82Lhz4MA4LNuOCo2Q63RIi/3LQqd+rBvvVCo6x6P5QxhjCqGVz6RvAGzgmcsaThbpXZzkZvnN07hNZ8FoCY12LpHOf/GW3fYkbnBz6INcqJlMzMOl0aiwxS/i3A959UDIFK7M8etrb1BZLbdPRBmt625qTM2P5wzI7uXxQBfQMy3TmPd67WQ1E8K0qaVDu6djbo99TBq+ItBits7oP/WAWJLNaZsfhuQKNRAhSur2kgRkKL7EJV5ldpJIznlicEFmBBaSmXv0nJwQkv0ccITN5KHeTxTTe4TRv9jBlZ92iGUIqi9ZIX9sm3z3UsXmnkzkM0r4S1GZ37P62dFtB4iNrNCt84U5I6wZoI/j30sjwf2HL5bhIlrDnTNj2lmSU1sZX6YgoCv+m2lD+ODtP4TcExXjKIQ3hAVYsujcvkC6kXxWrwRWZeWuLLliB6HcNSBjQLes4Py0MlgwU1GWnNRXWVy4gjkJ8vl3OhXQDESvoXL48RnCF/gqZ8+LE6QVc0H4KS94kjqFc8opvwHzVuX+ns/2CTK6dTrlkONqnfmKFGpS/xdrxJ3WZSR67+dtyXqLZhkOSX8ETiXedEDdU+; expires=Sat, 21-Nov-2015 14:18:12 GMT; path=/
+Set-Cookie: u={%0d%0a  "ID": "499",%0d%0a  "UserName": "bjcsxq",%0d%0a  "Pwd": "",%0d%0a  "RealName": "",%0d%0a  "UserType": 2,%0d%0a  "UserRank": ",323,518,324,172,163,445,171,170,169,168,116,241,117,247,291,248,329,304,342,313,321,348,266,254,450,451,460,452,455,457,459,465,475,332,447,148,164,149,147,146,145,144,143,142,165,167,166,263,206,208,205,249,207,243,303,448,209,368,369,1301,346,345,154,152,151,150,153,211,213,257,338,256,519,344,158,157,156,155,217,218,219,300,301,302,314,347,370,162,220,221,334,326,333,331,325,1001,1017,1016,1015,1014,1013,1012,1011,1002,1018,1003,1019,1005,1006,1020,1007,1008,1009,1021,1010",%0d%0a  "LoginGroupID": -1,%0d%0a  "LoginJgID": 115,%0d%0a  "LoginJgSysNo": "001002001",%0d%0a  "RightLimitType": 2,%0d%0a  "LastDateTime": "0001/01/01 00:00:00",%0d%0a  "TimeOutTime": "2014/04/01 08:18:12",%0d%0a  "IP": "114.249.192.181",%0d%0a  "SessionID": null,%0d%0a  "PlatID": 1,%0d%0a  "LoginJgName": "%e4%ba%ac%e6%b5%b7%e8%80%83%e8%af%95%e5%9c%ba"%0d%0a}; expires=Sat, 21-Nov-2015 14:18:12 GMT; path=/
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+Content-Length: 993
+
+{
+  "data": {
+    "ID": "499",
+    "UserName": "bjcsxq",
+    "Pwd": "",
+    "RealName": "",
+    "UserType": 2,
+    "UserRank": ",323,518,324,172,163,445,171,170,169,168,116,241,117,247,291,248,329,304,342,313,321,348,266,254,450,451,460,452,455,457,459,465,475,332,447,148,164,149,147,146,145,144,143,142,165,167,166,263,206,208,205,249,207,243,303,448,209,368,369,1301,346,345,154,152,151,150,153,211,213,257,338,256,519,344,158,157,156,155,217,218,219,300,301,302,314,347,370,162,220,221,334,326,333,331,325,1001,1017,1016,1015,1014,1013,1012,1011,1002,1018,1003,1019,1005,1006,1020,1007,1008,1009,1021,1010",
+    "LoginGroupID": -1,
+    "LoginJgID": 115,
+    "LoginJgSysNo": "001002001",
+    "RightLimitType": 2,
+    "LastDateTime": "0001/01/01 00:00:00",
+    "TimeOutTime": "2014/04/01 08:18:12",
+    "IP": "114.249.192.181",
+    "SessionID": null,
+    "PlatID": 1,
+    "LoginJgName": "%e4%ba%ac%e6%b5%b7%e8%80%83%e8%af%95%e5%9c%ba"
+  },
+  "code": 0,
+  "message": ""
+}
+
+4.GET /KM2/ClYyTimeSectionUIQuery2?xxzh=51168600 HTTP/1.1
+
+HTTP/1.1 200 OK
+Date: Mon, 31 Mar 2014 14:18:14 GMT
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+X-AspNet-Version: 4.0.30319
+X-AspNetMvc-Version: 2.0
+Set-Cookie: UserInfo=Cx7QwxIOJ3wc6Ex2RPQrpigfyCGkPQo7XQlGScAQCQw8yqvteGeLTInRwD9UsdzrgS05Dg9kKDqS/Ovm8kscaZ9sSPANNWvBMwtYreYtzLDfk7uBtTpR1gU/TTb6vxDgiZzhhbl07BEr7SfmkUOa1sRcjNYN4gHeUFRUkK1DOOmjMCeW9A+1GJenXtLbuB4ziNrNCt84U5Jpt8+iRlo4RNYIyhbSXxq1ONe/PgbwgAx/yJLSVlRfWrSR9kTxUSDtVpNxVqVKcBfZfpGfmQwun218Shop1o4oBeX5qHRgtP828HagWanJvGBPAACzHJBRGtu85FJa76FFeSuSS0XqGEvZPiVSjElJkc/qr3eUSyfy8Vf498ExTu4aBFZuxKJW4E1RdzSDJLf9FtU1/mV3P55tD0TIUDNsUQyPrDi0CtPSnFvclcwxXFOUy1M8nGW33BCyhgmHmxgP3RMD2Mfvy13y51Spq+jtB231IbX3Q9wHnV4yC5UGcJLKaJj8w+V80sLGBBprWXQhbxwljD086gDKn39OrLEIpbmyjgUCY4Dq3WjEJkpFBl7aofqT8j7bCD2rNSMK34P/S19cByMKHuqVDg+jBc7rQFu1VgBEKRxBrKKrz42AGhxDcPdGkyUcoKV97Ksqh54fR82Lhz4MA4LNuOCo2Q63RIi/3LQqd+rBvvVCo6x6P5QxhjCqGVz6RvAGzgmcsaThbpXZzkZvnN07hNZ8FoCY12LpHOf/GW3fYkbnBz6INcqJlMzMOl0aiwxS/i3A959UDIFK7M8etrb1BZLbdPRBmt625qTM2P5wzI7uXxQBfQMy3TmPd67WQ1E8K0qaVDu6djbo99TBq+ItBits7oP/WAWJLNaZsfhuQKNRAhSur2kgRkKL7EJV5ldpJIznlicEFmBBaSmXv0nJwQkv0ccITN5KHeTxTTe4TRv9jBlZ92iGUIqi9ZIX9sm3z3UsXmnkzkM0r4S1GZ37P62dFtB4iNrNCt84U5I6wZoI/j30sjwf2HL5bhIlrDnTNj2lmSU1sZX6YgoCv+m2lD+ODtP4TcExXjKIQ3hAVYsujcvkC6kXxWrwRWZeWuLLliB6HcPj4kyUk+gmi0MlgwU1GWnNRXWVy4gjkJ8vl3OhXQDESvoXL48RnCF/gqZ8+LE6QVc0H4KS94kjqFc8opvwHzVuX+ns/2CTK6dTrlkONqnfmKFGpS/xdrxJ3WZSR67+dtyXqLZhkOSX8ETiXedEDdU+; expires=Sat, 21-Nov-2015 14:18:13 GMT; path=/
+Set-Cookie: u={%0d%0a  "ID": "499",%0d%0a  "UserName": "bjcsxq",%0d%0a  "Pwd": "",%0d%0a  "RealName": "",%0d%0a  "UserType": 2,%0d%0a  "UserRank": ",323,518,324,172,163,445,171,170,169,168,116,241,117,247,291,248,329,304,342,313,321,348,266,254,450,451,460,452,455,457,459,465,475,332,447,148,164,149,147,146,145,144,143,142,165,167,166,263,206,208,205,249,207,243,303,448,209,368,369,1301,346,345,154,152,151,150,153,211,213,257,338,256,519,344,158,157,156,155,217,218,219,300,301,302,314,347,370,162,220,221,334,326,333,331,325,1001,1017,1016,1015,1014,1013,1012,1011,1002,1018,1003,1019,1005,1006,1020,1007,1008,1009,1021,1010",%0d%0a  "LoginGroupID": -1,%0d%0a  "LoginJgID": 115,%0d%0a  "LoginJgSysNo": "001002001",%0d%0a  "RightLimitType": 2,%0d%0a  "LastDateTime": "0001/01/01 00:00:00",%0d%0a  "TimeOutTime": "2014/04/01 08:18:13",%0d%0a  "IP": "114.249.192.181",%0d%0a  "SessionID": null,%0d%0a  "PlatID": 1,%0d%0a  "LoginJgName": "%e4%ba%ac%e6%b5%b7%e8%80%83%e8%af%95%e5%9c%ba"%0d%0a}; expires=Sat, 21-Nov-2015 14:18:13 GMT; path=/
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+Content-Length: 4388
+
+{
+  "data": {
+    "XnsdList": [
+      {
+        "Xnsd": 812,
+        "XnsdName": "08:00-12:00"
+      },
+      {
+        "Xnsd": 15,
+        "XnsdName": "13:00-17:00"
+      },
+      {
+        "Xnsd": 58,
+        "XnsdName": "17:00-20:00"
+      }
+    ],
+    "YyrqList": [
+      {
+        "Yyrq": "2014/03/31 22:18:09",
+        "DisplayWeek": "周一",
+        "DisplayYyrq": "03-31"
+      },
+      {
+        "Yyrq": "2014/04/01 22:18:09",
+        "DisplayWeek": "周二",
+        "DisplayYyrq": "04-01"
+      },
+      {
+        "Yyrq": "2014/04/02 22:18:09",
+        "DisplayWeek": "周三",
+        "DisplayYyrq": "04-02"
+      },
+      {
+        "Yyrq": "2014/04/03 22:18:09",
+        "DisplayWeek": "周四",
+        "DisplayYyrq": "04-03"
+      },
+      {
+        "Yyrq": "2014/04/04 22:18:09",
+        "DisplayWeek": "周五",
+        "DisplayYyrq": "04-04"
+      },
+      {
+        "Yyrq": "2014/04/05 22:18:09",
+        "DisplayWeek": "周六",
+        "DisplayYyrq": "04-05"
+      },
+      {
+        "Yyrq": "2014/04/06 22:18:09",
+        "DisplayWeek": "周日",
+        "DisplayYyrq": "04-06"
+      },
+      {
+        "Yyrq": "2014/04/07 22:18:09",
+        "DisplayWeek": "周一",
+        "DisplayYyrq": "04-07"
+      }
+    ],
+    "UIDatas": [
+      {
+        "Yyrq": "2014/03/31 22:18:09",
+        "Xnsd": "812",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/03/31 22:18:09",
+        "Xnsd": "15",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/03/31 22:18:09",
+        "Xnsd": "58",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/01 22:18:09",
+        "Xnsd": "812",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/01 22:18:09",
+        "Xnsd": "15",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/01 22:18:09",
+        "Xnsd": "58",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/02 22:18:09",
+        "Xnsd": "812",
+        "SL": 2,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/02 22:18:09",
+        "Xnsd": "15",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/02 22:18:09",
+        "Xnsd": "58",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/03 22:18:09",
+        "Xnsd": "812",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/03 22:18:09",
+        "Xnsd": "15",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/03 22:18:09",
+        "Xnsd": "58",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/04 22:18:09",
+        "Xnsd": "812",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/04 22:18:09",
+        "Xnsd": "15",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/04 22:18:09",
+        "Xnsd": "58",
+        "SL": 1,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/05 22:18:09",
+        "Xnsd": "812",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/05 22:18:09",
+        "Xnsd": "15",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/05 22:18:09",
+        "Xnsd": "58",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/06 22:18:09",
+        "Xnsd": "812",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/06 22:18:09",
+        "Xnsd": "15",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/06 22:18:09",
+        "Xnsd": "58",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/07 22:18:09",
+        "Xnsd": "812",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/07 22:18:09",
+        "Xnsd": "15",
+        "SL": 0,
+        "IsBpked": false
+      },
+      {
+        "Yyrq": "2014/04/07 22:18:09",
+        "Xnsd": "58",
+        "SL": 0,
+        "IsBpked": false
+      }
+    ]
+  },
+  "code": 0,
+  "message": ""
+}
+
+5.GET /KM2/ClYyCars2?filters%5Byyrq%5D=2014-04-02&filters%5Bxnsd%5D=812&filters%5Bxxzh%5D=51168600&pageno=1&pagesize=1000 HTTP/1.1
+
+HTTP/1.1 200 OK
+Date: Mon, 31 Mar 2014 14:21:24 GMT
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+X-AspNet-Version: 4.0.30319
+X-AspNetMvc-Version: 2.0
+Set-Cookie: UserInfo=Cx7QwxIOJ3wc6Ex2RPQrpigfyCGkPQo7XQlGScAQCQw8yqvteGeLTInRwD9UsdzrgS05Dg9kKDqS/Ovm8kscaZ9sSPANNWvBMwtYreYtzLDfk7uBtTpR1gU/TTb6vxDgiZzhhbl07BEr7SfmkUOa1sRcjNYN4gHeUFRUkK1DOOmjMCeW9A+1GJenXtLbuB4ziNrNCt84U5Jpt8+iRlo4RNYIyhbSXxq1ONe/PgbwgAx/yJLSVlRfWrSR9kTxUSDtVpNxVqVKcBfZfpGfmQwun218Shop1o4oBeX5qHRgtP828HagWanJvGBPAACzHJBRGtu85FJa76FFeSuSS0XqGEvZPiVSjElJkc/qr3eUSyfy8Vf498ExTu4aBFZuxKJW4E1RdzSDJLf9FtU1/mV3P55tD0TIUDNsUQyPrDi0CtPSnFvclcwxXFOUy1M8nGW33BCyhgmHmxgP3RMD2Mfvy13y51Spq+jtB231IbX3Q9wHnV4yC5UGcJLKaJj8w+V80sLGBBprWXQhbxwljD086gDKn39OrLEIpbmyjgUCY4Dq3WjEJkpFBl7aofqT8j7bCD2rNSMK34P/S19cByMKHuqVDg+jBc7rQFu1VgBEKRxBrKKrz42AGhxDcPdGkyUcoKV97Ksqh54fR82Lhz4MA4LNuOCo2Q63RIi/3LQqd+rBvvVCo6x6P5QxhjCqGVz6RvAGzgmcsaThbpXZzkZvnN07hNZ8FoCY12LpHOf/GW3fYkbnBz6INcqJlMzMOl0aiwxS/i3A959UDIFK7M8etrb1BZLbdPRBmt625qTM2P5wzI7uXxQBfQMy3TmPd67WQ1E8K0qaVDu6djbo99TBq+ItBits7oP/WAWJLNaZsfhuQKNRAhSur2kgRkKL7EJV5ldpJIznlicEFmBBaSmXv0nJwQkv0ccITN5KHeTxTTe4TRv9jBlZ92iGUIqi9ZIX9sm3z3UsXmnkzkM0r4S1GZ37P62dFtB4iNrNCt84U5I6wZoI/j30sjwf2HL5bhIlrDnTNj2lmSU1sZX6YgoCv+m2lD+ODtP4TcExXjKIQ3hAVYsujcvkC6kXxWrwRWZeWuLLliB6HcN+Y9wZWGcod0MlgwU1GWnNRXWVy4gjkJ8vl3OhXQDESvoXL48RnCF/gqZ8+LE6QVc0H4KS94kjqFc8opvwHzVuX+ns/2CTK6dTrlkONqnfmKFGpS/xdrxJ3WZSR67+dtyXqLZhkOSX8ETiXedEDdU+; expires=Sat, 21-Nov-2015 14:21:24 GMT; path=/
+Set-Cookie: u={%0d%0a  "ID": "499",%0d%0a  "UserName": "bjcsxq",%0d%0a  "Pwd": "",%0d%0a  "RealName": "",%0d%0a  "UserType": 2,%0d%0a  "UserRank": ",323,518,324,172,163,445,171,170,169,168,116,241,117,247,291,248,329,304,342,313,321,348,266,254,450,451,460,452,455,457,459,465,475,332,447,148,164,149,147,146,145,144,143,142,165,167,166,263,206,208,205,249,207,243,303,448,209,368,369,1301,346,345,154,152,151,150,153,211,213,257,338,256,519,344,158,157,156,155,217,218,219,300,301,302,314,347,370,162,220,221,334,326,333,331,325,1001,1017,1016,1015,1014,1013,1012,1011,1002,1018,1003,1019,1005,1006,1020,1007,1008,1009,1021,1010",%0d%0a  "LoginGroupID": -1,%0d%0a  "LoginJgID": 115,%0d%0a  "LoginJgSysNo": "001002001",%0d%0a  "RightLimitType": 2,%0d%0a  "LastDateTime": "0001/01/01 00:00:00",%0d%0a  "TimeOutTime": "2014/04/01 08:21:24",%0d%0a  "IP": "114.249.192.181",%0d%0a  "SessionID": null,%0d%0a  "PlatID": 1,%0d%0a  "LoginJgName": "%e4%ba%ac%e6%b5%b7%e8%80%83%e8%af%95%e5%9c%ba"%0d%0a}; expires=Sat, 21-Nov-2015 14:21:24 GMT; path=/
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+Content-Length: 382
+
+{
+  "data": {
+    "Result": [
+      {
+        "JLCBH": "612418",
+        "CNBH": "08206",
+        "YT": "1"
+      },
+      {
+        "JLCBH": "612141",
+        "CNBH": "08090",
+        "YT": "1"
+      }
+    ],
+    "Total": 2,
+    "moneys": 0.0,
+    "ZPmoneys": null,
+    "XJmoneys": null,
+    "ZPRS": null,
+    "XJRS": null
+  },
+  "code": 0,
+  "message": ""
+}
+
+6.GET /KM2/ClYyAddByMutil?xxzh=51168600&params=08090.2014-04-02.812..&isJcsdYyMode=5 HTTP/1.1
+
+HTTP/1.1 200 OK
+Date: Mon, 31 Mar 2014 14:26:19 GMT
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+X-AspNet-Version: 4.0.30319
+X-AspNetMvc-Version: 2.0
+Set-Cookie: UserInfo=Cx7QwxIOJ3wc6Ex2RPQrpigfyCGkPQo7XQlGScAQCQw8yqvteGeLTInRwD9UsdzrgS05Dg9kKDqS/Ovm8kscaZ9sSPANNWvBMwtYreYtzLDfk7uBtTpR1gU/TTb6vxDgiZzhhbl07BEr7SfmkUOa1sRcjNYN4gHeUFRUkK1DOOmjMCeW9A+1GJenXtLbuB4ziNrNCt84U5Jpt8+iRlo4RNYIyhbSXxq1ONe/PgbwgAx/yJLSVlRfWrSR9kTxUSDtVpNxVqVKcBfZfpGfmQwun218Shop1o4oBeX5qHRgtP828HagWanJvGBPAACzHJBRGtu85FJa76FFeSuSS0XqGEvZPiVSjElJkc/qr3eUSyfy8Vf498ExTu4aBFZuxKJW4E1RdzSDJLf9FtU1/mV3P55tD0TIUDNsUQyPrDi0CtPSnFvclcwxXFOUy1M8nGW33BCyhgmHmxgP3RMD2Mfvy13y51Spq+jtB231IbX3Q9wHnV4yC5UGcJLKaJj8w+V80sLGBBprWXQhbxwljD086gDKn39OrLEIpbmyjgUCY4Dq3WjEJkpFBl7aofqT8j7bCD2rNSMK34P/S19cByMKHuqVDg+jBc7rQFu1VgBEKRxBrKKrz42AGhxDcPdGkyUcoKV97Ksqh54fR82Lhz4MA4LNuOCo2Q63RIi/3LQqd+rBvvVCo6x6P5QxhjCqGVz6RvAGzgmcsaThbpXZzkZvnN07hNZ8FoCY12LpHOf/GW3fYkbnBz6INcqJlMzMOl0aiwxS/i3A959UDIFK7M8etrb1BZLbdPRBmt625qTM2P5wzI7uXxQBfQMy3TmPd67WQ1E8K0qaVDu6djbo99TBq+ItBits7oP/WAWJLNaZsfhuQKNRAhSur2kgRkKL7EJV5ldpJIznlicEFmBBaSmXv0nJwQkv0ccITN5KHeTxTTe4TRv9jBlZ92iGUIqi9ZIX9sm3z3UsXmnkzkM0r4S1GZ37P62dFtB4iNrNCt84U5I6wZoI/j30sjwf2HL5bhIlrDnTNj2lmSU1sZX6YgoCv+m2lD+ODtP4TcExXjKIQ3hAVYsujcvkC6kXxWrwRWZeWuLLliB6HcOHpHqoU2Lz10MlgwU1GWnNRXWVy4gjkJ8vl3OhXQDESvoXL48RnCF/gqZ8+LE6QVc0H4KS94kjqFc8opvwHzVuX+ns/2CTK6dTrlkONqnfmKFGpS/xdrxJ3WZSR67+dtyXqLZhkOSX8ETiXedEDdU+; expires=Sat, 21-Nov-2015 14:26:19 GMT; path=/
+Set-Cookie: u={%0d%0a  "ID": "499",%0d%0a  "UserName": "bjcsxq",%0d%0a  "Pwd": "",%0d%0a  "RealName": "",%0d%0a  "UserType": 2,%0d%0a  "UserRank": ",323,518,324,172,163,445,171,170,169,168,116,241,117,247,291,248,329,304,342,313,321,348,266,254,450,451,460,452,455,457,459,465,475,332,447,148,164,149,147,146,145,144,143,142,165,167,166,263,206,208,205,249,207,243,303,448,209,368,369,1301,346,345,154,152,151,150,153,211,213,257,338,256,519,344,158,157,156,155,217,218,219,300,301,302,314,347,370,162,220,221,334,326,333,331,325,1001,1017,1016,1015,1014,1013,1012,1011,1002,1018,1003,1019,1005,1006,1020,1007,1008,1009,1021,1010",%0d%0a  "LoginGroupID": -1,%0d%0a  "LoginJgID": 115,%0d%0a  "LoginJgSysNo": "001002001",%0d%0a  "RightLimitType": 2,%0d%0a  "LastDateTime": "0001/01/01 00:00:00",%0d%0a  "TimeOutTime": "2014/04/01 08:26:19",%0d%0a  "IP": "114.249.192.181",%0d%0a  "SessionID": null,%0d%0a  "PlatID": 1,%0d%0a  "LoginJgName": "%e4%ba%ac%e6%b5%b7%e8%80%83%e8%af%95%e5%9c%ba"%0d%0a}; expires=Sat, 21-Nov-2015 14:26:19 GMT; path=/
+Cache-Control: private
+Content-Type: application/json; charset=utf-8
+Content-Length: 64
+
+{"data":null,"code":1,"message":"非预约开放时间\r\n\r\n"}  
+
+
+yu yue
+GET /KM2/ClYyCars2?filters%5Byyrq%5D=2014-04-02&filters%5Bxnsd%5D=812&filters%5Bxxzh%5D=51168515&pageno=1&pagesize=1000 HTTP/1.1
+
+yu yue que ren
+GET /KM2/ClYyAddByMutil?xxzh=51168600&params=08090.2014-04-02.812..&isJcsdYyMode=5 HTTP/1.1
+
