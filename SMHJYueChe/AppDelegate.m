@@ -1,15 +1,15 @@
 //
-//  SMAppDelegate.m
+//  AppDelegate.m
 //  SMHJYueChe
 //
-//  Created by administrator on 14-4-1.
-//  Copyright (c) 2014年 SM. All rights reserved.
+//  Created by smartrookie on 4/1/14.
+//  Copyright (c) 2014 zdf. All rights reserved.
 //
 
-#import "SMAppDelegate.h"
+#import "AppDelegate.h"
 #import "SMViewController.h"
 
-@implementation SMAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -19,12 +19,11 @@
     UINavigationController *navictrl = [[UINavigationController alloc] initWithRootViewController:vctrl];
     
     [self.window setRootViewController:navictrl];
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    [self.window setBackgroundColor:[UIColor whiteColor]];
-    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
