@@ -7,6 +7,7 @@
 //
 
 #import "SMSignInViewController.h"
+#import "SMMainViewController.h"
 
 @interface SMSignInViewController()
 
@@ -21,6 +22,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setTitle:@"登录界面"];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    [backItem setTitle:@"返回"];
+    [self.navigationItem setBackBarButtonItem:backItem];
     
     _tf_account = [[UITextField alloc] init];
     [_tf_account setFrame:CGRectMake(50, 100, 220, 40)];
@@ -50,10 +55,16 @@
     NSString *account = _tf_account.text;
     NSString *password = _tf_password.text;
     
+    account = @"111111";
+    password = @"111111";
+    
     if (!account || [account isEqualToString:@""]
         || !password || [password isEqualToString:@""]) {
         UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:nil message:@"登录号或密码不能为空" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alertview show];
+    } else {
+        SMMainViewController *mainctrl = [[SMMainViewController alloc] init];
+        [self.navigationController pushViewController:mainctrl animated:YES];
     }
     
 }

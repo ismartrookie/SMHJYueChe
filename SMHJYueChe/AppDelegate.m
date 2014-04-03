@@ -18,8 +18,11 @@
     
 //    SMViewController *vctrl = [[SMViewController alloc] init];
 //    UINavigationController *navictrl = [[UINavigationController alloc] initWithRootViewController:vctrl];
+    
+    
     SMSignInViewController *signInvctrl = [[SMSignInViewController alloc] init];
-    [self.window setRootViewController:signInvctrl];
+    UINavigationController *navictrl = [[UINavigationController alloc] initWithRootViewController:signInvctrl];
+    [self.window setRootViewController:navictrl];
     
 //    [self.window setRootViewController:navictrl];
     self.window.backgroundColor = [UIColor whiteColor];
