@@ -8,7 +8,7 @@
 
 #import "SMSignInViewController.h"
 #import "SMMainViewController.h"
-
+#import "SMPortalUtile.h"
 @interface SMSignInViewController()
 
 @property (strong, nonatomic) UITextField *tf_account;
@@ -63,10 +63,19 @@
         UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:nil message:@"登录号或密码不能为空" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alertview show];
     } else {
-        SMMainViewController *mainctrl = [[SMMainViewController alloc] init];
-        [self.navigationController pushViewController:mainctrl animated:YES];
+        [SMPortalUtile haijiaSystemLoginwithUserName:nil andPassword:nil andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *respDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+            int code = [[respDic objectForKey:@"code"] intValue];
+            if (code == 0) {
+                NSLog(@"登录成功");
+                SMMainViewController *mainctrl = [[SMMainViewController alloc] init];
+                [self.navigationController pushViewController:mainctrl animated:YES];
+            }
+        } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            ;
+        }];
+
     }
-    
 }
 
 
