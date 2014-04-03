@@ -40,6 +40,7 @@
 		E058B2E118EAF6F40008C328 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E058B2D018EAF6F40008C328 /* UIProgressView+AFNetworking.m */; };
 		E058B2E218EAF6F40008C328 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E058B2D218EAF6F40008C328 /* UIWebView+AFNetworking.m */; };
 		E058B2E518EB0E4A0008C328 /* SMEnYCBH.m in Sources */ = {isa = PBXBuildFile; fileRef = E058B2E418EB0E4A0008C328 /* SMEnYCBH.m */; };
+		E05EF0F118EC4FDE0037EE7B /* SMPortalUtile.m in Sources */ = {isa = PBXBuildFile; fileRef = E05EF0F018EC4FDE0037EE7B /* SMPortalUtile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,8 @@
 		E058B2D218EAF6F40008C328 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		E058B2E318EB0E4A0008C328 /* SMEnYCBH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMEnYCBH.h; sourceTree = "<group>"; };
 		E058B2E418EB0E4A0008C328 /* SMEnYCBH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMEnYCBH.m; sourceTree = "<group>"; };
+		E05EF0EF18EC4FDE0037EE7B /* SMPortalUtile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPortalUtile.h; sourceTree = "<group>"; };
+		E05EF0F018EC4FDE0037EE7B /* SMPortalUtile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPortalUtile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E058B2DC18EAF6F40008C328 /* AFURLSessionManager.m in Sources */,
+				E05EF0F118EC4FDE0037EE7B /* SMPortalUtile.m in Sources */,
 				E058B2D318EAF6F40008C328 /* AFHTTPRequestOperation.m in Sources */,
 				E058B2DF18EAF6F40008C328 /* UIButton+AFNetworking.m in Sources */,
 				6B96136B18EC084400CCA262 /* SMSignInViewController.m in Sources */,
