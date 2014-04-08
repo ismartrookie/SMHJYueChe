@@ -209,7 +209,7 @@
             break;
         case 7:{
             //查询可用车友号
-            int username = 5670982;
+            int username = 5695982;
             for (int i = 1000; i < 3000; i++) {
                 NSString *loginStr = [NSString stringWithFormat:@"http://xinyue.bjxueche.net:8005/User/isbinding?username=%5d",username+i];
                 NSURLRequest *loginRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:loginStr]];

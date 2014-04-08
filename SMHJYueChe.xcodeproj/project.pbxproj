@@ -43,6 +43,9 @@
 		E058B2E218EAF6F40008C328 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E058B2D218EAF6F40008C328 /* UIWebView+AFNetworking.m */; };
 		E058B2E518EB0E4A0008C328 /* SMEnYCBH.m in Sources */ = {isa = PBXBuildFile; fileRef = E058B2E418EB0E4A0008C328 /* SMEnYCBH.m */; };
 		E08919DE18ED9A7500DED0F6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E08919DD18ED9A7500DED0F6 /* Reachability.m */; };
+		E0B6C44618F439B20013E24E /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E0B6C44518F439B20013E24E /* images.bundle */; };
+		E0B6C44B18F447700013E24E /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E0B6C44818F447700013E24E /* SVProgressHUD.bundle */; };
+		E0B6C44C18F447700013E24E /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E0B6C44A18F447700013E24E /* SVProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +124,10 @@
 		E058B2E418EB0E4A0008C328 /* SMEnYCBH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMEnYCBH.m; sourceTree = "<group>"; };
 		E08919DC18ED9A7500DED0F6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		E08919DD18ED9A7500DED0F6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		E0B6C44518F439B20013E24E /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = SOURCE_ROOT; };
+		E0B6C44818F447700013E24E /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		E0B6C44918F447700013E24E /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		E0B6C44A18F447700013E24E /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +157,7 @@
 		E058B26918EAF6640008C328 = {
 			isa = PBXGroup;
 			children = (
+				E0B6C44718F447700013E24E /* SVProgressHUD */,
 				E08919DC18ED9A7500DED0F6 /* Reachability.h */,
 				E08919DD18ED9A7500DED0F6 /* Reachability.m */,
 				E058B2B018EAF6F40008C328 /* AFNetworking */,
@@ -183,6 +191,7 @@
 		E058B27B18EAF6650008C328 /* SMHJYueChe */ = {
 			isa = PBXGroup;
 			children = (
+				E0B6C44518F439B20013E24E /* images.bundle */,
 				6BBDED0718ED470B00A30A80 /* SMPortalUtile.h */,
 				6BBDED0818ED470B00A30A80 /* SMPortalUtile.m */,
 				E058B2A418EAF6D60008C328 /* SM_URL_LOG.txt */,
@@ -282,6 +291,16 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		E0B6C44718F447700013E24E /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E0B6C44818F447700013E24E /* SVProgressHUD.bundle */,
+				E0B6C44918F447700013E24E /* SVProgressHUD.h */,
+				E0B6C44A18F447700013E24E /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -360,9 +379,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0B6C44B18F447700013E24E /* SVProgressHUD.bundle in Resources */,
 				E058B28018EAF6650008C328 /* InfoPlist.strings in Resources */,
 				E058B28818EAF6650008C328 /* Images.xcassets in Resources */,
 				E058B2AC18EAF6D60008C328 /* SM_URL_LOG.txt in Resources */,
+				E0B6C44618F439B20013E24E /* images.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +411,7 @@
 				E058B2E118EAF6F40008C328 /* UIProgressView+AFNetworking.m in Sources */,
 				6BBDED0918ED470B00A30A80 /* SMPortalUtile.m in Sources */,
 				E058B2D718EAF6F40008C328 /* AFNetworkReachabilityManager.m in Sources */,
+				E0B6C44C18F447700013E24E /* SVProgressHUD.m in Sources */,
 				E058B2D918EAF6F40008C328 /* AFURLConnectionOperation.m in Sources */,
 				E058B2E518EB0E4A0008C328 /* SMEnYCBH.m in Sources */,
 				E058B28218EAF6650008C328 /* main.m in Sources */,
@@ -531,6 +553,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMHJYueChe/SMHJYueChe-Prefix.pch";
 				INFOPLIST_FILE = "SMHJYueChe/SMHJYueChe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -547,6 +570,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMHJYueChe/SMHJYueChe-Prefix.pch";
 				INFOPLIST_FILE = "SMHJYueChe/SMHJYueChe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

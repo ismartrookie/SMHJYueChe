@@ -13,6 +13,7 @@
 @interface SMMainViewController ()
 
 @property (assign, nonatomic) BOOL hasBook;
+@property (strong, nonatomic) NSString *xxzh;
 
 @end
 
@@ -22,7 +23,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"约车界面";
+    self.xxzh = @"51168515";
+    self.title = @"51168515/张东风 2014-04-12";
+    
+    
+    //    NSString *xxzh = @"51168449"; //耿震
+    //    NSString *xxzh = @"51168515"; //张东风
+    //    NSString *xxzh = @"51168600"; //吴炯红
+    
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
     UIButton *testButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -43,22 +51,16 @@
 
 - (void)testFunction:(UIButton *)sender
 {
-    NSString* yyrq;
+    NSString* yyrq1;
     NSDate *now = [NSDate dateWithTimeIntervalSinceNow:60*60*24*7];
-    
     NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"YYYY-MM-dd"];
-    yyrq = [formatter stringFromDate:now];
-    
-    NSLog(@"当前时间为 ： %@",yyrq);
+    yyrq1 = [formatter stringFromDate:now];
+    NSLog(@"当前时间为 ： %@",yyrq1);
     NSLog(@"now = %@",now.description);
-    
-//    NSString *xxzh = @"51168515"; //张东风
-    NSString *xxzh = @"51168600"; //吴炯红
     NSArray *yysds = [NSArray arrayWithObjects:@"812",@"15",@"58", nil];
-    
     dispatch_apply([yysds count], dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(size_t i) {
-        [SMPortalUtile haijiaYuYueCarsQuerywithYyrq:yyrq andYysd:[yysds objectAtIndex:i] andXxzh:xxzh andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SMPortalUtile haijiaYuYueCarsQuerywithYyrq:yyrq1 andYysd:[yysds objectAtIndex:i] andXxzh:_xxzh andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 //            NSLog(@"可预约车辆 =  %@",operation.responseString);
             NSDictionary *respDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
             int code = [[respDic objectForKey:@"code"] intValue];
@@ -70,7 +72,7 @@
                 }
                 dispatch_apply([cars count], dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(size_t j) {
                     NSString *CNBH = [[cars objectAtIndex:j] objectForKey:@"CNBH"];
-                    [self cyclerRequestYuyueCarWithXxzh:xxzh andClbh:CNBH andYyrq:yyrq andYysd:[yysds objectAtIndex:i]];
+                    [self cyclerRequestYuyueCarWithXxzh:_xxzh andClbh:CNBH andYyrq:yyrq1 andYysd:[yysds objectAtIndex:i]];
                 });
             } else {
                 NSLog(@"ErroMessage = %@",[respDic objectForKey:@"message"]);
@@ -79,10 +81,8 @@
             ;
         }];
     });
+    
 }
-
-
-
 
 - (void)cyclerRequestYuyueCarWithXxzh:(NSString *)xxzh andClbh:(NSString *)clbh andYyrq:(NSString *)yyrq andYysd:yysd
 {
@@ -110,6 +110,9 @@
         }
     }];
 }
+
+
+
 
 
 

@@ -9,6 +9,7 @@
 #import "SMSignInViewController.h"
 #import "SMMainViewController.h"
 #import "SMPortalUtile.h"
+#import "SVProgressHUD.h"
 @interface SMSignInViewController()
 
 @property (strong, nonatomic) UITextField *tf_account;
@@ -22,48 +23,78 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setTitle:@"登录界面"];
+    
+    UIImageView *backgroundv = [[UIImageView alloc] init];
+    [backgroundv setFrame:CGRectMake(0, 0, 320, 568)];
+    [backgroundv setImage:[UIImage imageNamed:@"images.bundle/tcar_background.png"]];
+    [self.view addSubview:backgroundv];
+    
+    UIImageView *logov = [[UIImageView alloc] init];
+    [logov setFrame:CGRectMake(0, 60, 320, 101)];
+    [logov setImage:[UIImage imageNamed:@"images.bundle/tcar_logo.png"]];
+    [self.view addSubview:logov];
+    
+    UIImageView *inputbv = [[UIImageView alloc] init];
+    [inputbv setFrame:CGRectMake(0, CGRectGetMaxY(logov.frame), 320, 94)];
+    [inputbv setImage:[UIImage imageNamed:@"images.bundle/tcar_inputfield.png"]];
+    [inputbv setUserInteractionEnabled:YES];
+    [self.view addSubview:inputbv];
+    
+    _tf_account = [[UITextField alloc] init];
+    [_tf_account setFrame:CGRectMake(10, 2, 300, 41)];
+    [_tf_account setBackgroundColor:[UIColor clearColor]];
+    [_tf_account setPlaceholder:@"用户名"];
+    [_tf_account setTextAlignment:NSTextAlignmentCenter];
+    [_tf_account setKeyboardType:UIKeyboardTypeNumberPad];
+    [_tf_account setClearButtonMode:UITextFieldViewModeWhileEditing];
+    [inputbv addSubview:_tf_account];
+    
+    _tf_password = [[UITextField alloc] init];
+    [_tf_password setFrame:CGRectMake(10, 48, 300, 42)];
+    [_tf_password setBackgroundColor:[UIColor clearColor]];
+    [_tf_password setPlaceholder:@"密码"];
+    [_tf_password setTextAlignment:NSTextAlignmentCenter];
+    [_tf_password setSecureTextEntry:YES];
+    [_tf_password setClearButtonMode:UITextFieldViewModeWhileEditing];
+    [inputbv addSubview:_tf_password];
+    
+    UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [loginBtn setFrame:CGRectMake(15, CGRectGetMaxY(inputbv.frame)+20, 290, 42)];
+    [loginBtn setImage:[UIImage imageNamed:@"images.bundle/tcar_loginbtn.png"] forState:UIControlStateNormal];
+    [loginBtn addTarget:self action:@selector(signInFunction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:loginBtn];
+    
+    UIButton *forgetpwBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [forgetpwBtn setFrame:CGRectMake(0, CGRectGetMaxY(self.view.frame)-50, 80, 30)];
+    [forgetpwBtn setImage:[UIImage imageNamed:@"images.bundle/tcar_forgetpw.png"] forState:UIControlStateNormal];
+    [self.view addSubview:forgetpwBtn];
+    
+    UIButton *newuserBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [newuserBtn setFrame:CGRectMake(320-80, CGRectGetMaxY(self.view.frame)-50, 80, 30)];
+    [newuserBtn setImage:[UIImage imageNamed:@"images.bundle/tcar_newuser.png"] forState:UIControlStateNormal];
+    [self.view addSubview:newuserBtn];
+
+
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     [backItem setTitle:@"返回"];
     [self.navigationItem setBackBarButtonItem:backItem];
-    
-    _tf_account = [[UITextField alloc] init];
-    [_tf_account setFrame:CGRectMake(50, 100, 220, 40)];
-    [_tf_account setBackgroundColor:[UIColor yellowColor]];
-    [_tf_account setBorderStyle:UITextBorderStyleLine];
-    [_tf_account setPlaceholder:@"车友号"];
-    [_tf_account setKeyboardType:UIKeyboardTypeNumberPad];
-    [self.view addSubview:_tf_account];
-    
-    _tf_password = [[UITextField alloc] init];
-    [_tf_password setFrame:CGRectMake(50, 150, 220, 40)];
-    [_tf_password setBackgroundColor:[UIColor yellowColor]];
-    [_tf_password setBorderStyle:UITextBorderStyleLine];
-    [_tf_password setPlaceholder:@"密码"];
-    [_tf_password setSecureTextEntry:YES];
-    [self.view addSubview:_tf_password];
-    
-    UIButton *btn_login = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btn_login setFrame:CGRectMake(50, 240, 220, 40)];
-    [btn_login setTitle:@"登录" forState:UIControlStateNormal];
-    [btn_login addTarget:self action:@selector(signInFunction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn_login];
 }
 
 - (void)signInFunction:(UIButton *)sender
 {
+    [self resignFirstResponder];
     NSString *account = _tf_account.text;
     NSString *password = _tf_password.text;
     
-    account = @"111111";
-    password = @"111111";
-    
-    if (!account || [account isEqualToString:@""]
-        || !password || [password isEqualToString:@""]) {
-        UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:nil message:@"登录号或密码不能为空" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alertview show];
+    if (!account || [account isEqualToString:@""]) {
+        [SVProgressHUD showErrorWithStatus:@"用户名不能为空" duration:1];
+    } else if (!password || [password isEqualToString:@""]) {
+        [SVProgressHUD showErrorWithStatus:@"密码不能为空" duration:1];
     } else {
+        
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
         [SMPortalUtile haijiaSystemLoginwithUserName:nil andPassword:nil andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD dismiss];
             NSDictionary *respDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
             int code = [[respDic objectForKey:@"code"] intValue];
             if (code == 0) {
@@ -72,9 +103,15 @@
                 [self.navigationController pushViewController:mainctrl animated:YES];
             }
         } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            ;
+            [SVProgressHUD dismiss];
         }];
-
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
