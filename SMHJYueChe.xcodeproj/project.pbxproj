@@ -10,6 +10,7 @@
 		6B5B758E18ED5CBE00B62FF0 /* SMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B758D18ED5CBE00B62FF0 /* SMMainViewController.m */; };
 		6B96136B18EC084400CCA262 /* SMSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B96136A18EC084400CCA262 /* SMSignInViewController.m */; };
 		6BBDED0918ED470B00A30A80 /* SMPortalUtile.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBDED0818ED470B00A30A80 /* SMPortalUtile.m */; };
+		E03E03A918F58ADD003C593F /* SMSnatchCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E03E03A818F58ADD003C593F /* SMSnatchCarViewController.m */; };
 		E058B27618EAF6650008C328 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058B27518EAF6650008C328 /* Foundation.framework */; };
 		E058B27818EAF6650008C328 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058B27718EAF6650008C328 /* CoreGraphics.framework */; };
 		E058B27A18EAF6650008C328 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E058B27918EAF6650008C328 /* UIKit.framework */; };
@@ -65,6 +66,8 @@
 		6B96136A18EC084400CCA262 /* SMSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSignInViewController.m; sourceTree = "<group>"; };
 		6BBDED0718ED470B00A30A80 /* SMPortalUtile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPortalUtile.h; sourceTree = "<group>"; };
 		6BBDED0818ED470B00A30A80 /* SMPortalUtile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPortalUtile.m; sourceTree = "<group>"; };
+		E03E03A718F58ADD003C593F /* SMSnatchCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSnatchCarViewController.h; sourceTree = "<group>"; };
+		E03E03A818F58ADD003C593F /* SMSnatchCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSnatchCarViewController.m; sourceTree = "<group>"; };
 		E058B27218EAF6650008C328 /* SMHJYueChe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMHJYueChe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E058B27518EAF6650008C328 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E058B27718EAF6650008C328 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -202,6 +205,8 @@
 				E058B28518EAF6650008C328 /* AppDelegate.m */,
 				6B96136918EC084400CCA262 /* SMSignInViewController.h */,
 				6B96136A18EC084400CCA262 /* SMSignInViewController.m */,
+				E03E03A718F58ADD003C593F /* SMSnatchCarViewController.h */,
+				E03E03A818F58ADD003C593F /* SMSnatchCarViewController.m */,
 				6B5B758C18ED5CBE00B62FF0 /* SMMainViewController.h */,
 				6B5B758D18ED5CBE00B62FF0 /* SMMainViewController.m */,
 				E058B28718EAF6650008C328 /* Images.xcassets */,
@@ -409,6 +414,7 @@
 				E08919DE18ED9A7500DED0F6 /* Reachability.m in Sources */,
 				E058B28618EAF6650008C328 /* AppDelegate.m in Sources */,
 				E058B2E118EAF6F40008C328 /* UIProgressView+AFNetworking.m in Sources */,
+				E03E03A918F58ADD003C593F /* SMSnatchCarViewController.m in Sources */,
 				6BBDED0918ED470B00A30A80 /* SMPortalUtile.m in Sources */,
 				E058B2D718EAF6F40008C328 /* AFNetworkReachabilityManager.m in Sources */,
 				E0B6C44C18F447700013E24E /* SVProgressHUD.m in Sources */,
