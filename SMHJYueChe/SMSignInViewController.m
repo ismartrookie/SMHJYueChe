@@ -87,9 +87,15 @@
     NSString *password = _tf_password.text;
     
     if (!account || [account isEqualToString:@""]) {
-        [SVProgressHUD showErrorWithStatus:@"用户名不能为空" duration:1];
+        [SVProgressHUD showErrorWithStatus:@"用户名不能为空"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
     } else if (!password || [password isEqualToString:@""]) {
-        [SVProgressHUD showErrorWithStatus:@"密码不能为空" duration:1];
+        [SVProgressHUD showProgress:10 status:@"密码不能为空"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
     } else {
         
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
@@ -105,12 +111,6 @@
         } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [SVProgressHUD dismiss];
         }];
-        
-        
-        
-        
-        
-        
         
     }
 }
