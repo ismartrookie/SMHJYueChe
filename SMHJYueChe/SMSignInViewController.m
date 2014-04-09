@@ -92,7 +92,7 @@
             [SVProgressHUD dismiss];
         });
     } else if (!password || [password isEqualToString:@""]) {
-        [SVProgressHUD showProgress:10 status:@"密码不能为空"];
+        [SVProgressHUD showErrorWithStatus:@"密码不能为空"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];
         });
