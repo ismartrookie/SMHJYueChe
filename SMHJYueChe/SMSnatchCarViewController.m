@@ -8,7 +8,10 @@
 
 #import "SMSnatchCarViewController.h"
 
-@interface SMSnatchCarViewController ()
+@interface SMSnatchCarViewController ()<UITableViewDelegate,UITableViewDataSource> {
+    UITableView *tableview;
+    NSArray *tableDataArr;
+}
 
 @end
 
@@ -33,31 +36,41 @@
     
     
     
+    tableview = ({
+        UITableView *_tableview = [[UITableView alloc] init];
+        [_tableview setDelegate:self];
+        [_tableview setDataSource:self];
+        [_tableview setFrame:CGRectMake(0, 240, 320, CGRectGetMaxY(self.view.frame)-150-240)];
+        _tableview;
+    });
+    [self.view addSubview:tableview];
     
-    
-    
-    
+    tableDataArr = @[@"一",@"二",@"三",@"四",@"五",@"六",@"七"];
     
     
     
     
 }
-
-- (void)didReceiveMemoryWarning
+#pragma mark -UITableViewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return 1;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return [tableDataArr count];
 }
-*/
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"cell";
+    UITableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    [cell.textLabel setText:[tableDataArr objectAtIndex:indexPath.row]];
+    return cell;
+}
+
+
 
 @end
