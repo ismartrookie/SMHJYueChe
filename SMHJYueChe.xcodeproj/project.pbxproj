@@ -31,6 +31,7 @@
 		E058B29918EAF6650008C328 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E058B29718EAF6650008C328 /* InfoPlist.strings */; };
 		E058B29B18EAF6650008C328 /* SMHJYueCheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E058B29A18EAF6650008C328 /* SMHJYueCheTests.m */; };
 		E058B2AC18EAF6D60008C328 /* SM_URL_LOG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E058B2A418EAF6D60008C328 /* SM_URL_LOG.txt */; };
+		E075260F18F6DFB90061BAE5 /* SMSnatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E075260E18F6DFB90061BAE5 /* SMSnatchTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		E058B29818EAF6650008C328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E058B29A18EAF6650008C328 /* SMHJYueCheTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMHJYueCheTests.m; sourceTree = "<group>"; };
 		E058B2A418EAF6D60008C328 /* SM_URL_LOG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SM_URL_LOG.txt; sourceTree = SOURCE_ROOT; };
+		E075260D18F6DFB90061BAE5 /* SMSnatchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSnatchTableViewCell.h; sourceTree = "<group>"; };
+		E075260E18F6DFB90061BAE5 /* SMSnatchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSnatchTableViewCell.m; sourceTree = "<group>"; };
 		EA981656EB0142308C376783 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -178,6 +181,8 @@
 				6B96136A18EC084400CCA262 /* SMSignInViewController.m */,
 				E03E03A718F58ADD003C593F /* SMSnatchCarViewController.h */,
 				E03E03A818F58ADD003C593F /* SMSnatchCarViewController.m */,
+				E075260D18F6DFB90061BAE5 /* SMSnatchTableViewCell.h */,
+				E075260E18F6DFB90061BAE5 /* SMSnatchTableViewCell.m */,
 				6B5B758C18ED5CBE00B62FF0 /* SMMainViewController.h */,
 				6B5B758D18ED5CBE00B62FF0 /* SMMainViewController.m */,
 				E058B28718EAF6650008C328 /* Images.xcassets */,
@@ -358,6 +363,7 @@
 				6BBDED0918ED470B00A30A80 /* SMPortalUtile.m in Sources */,
 				6B795EB318F551AD009626C2 /* SMViewController.m in Sources */,
 				6B795EB118F551AD009626C2 /* SMEnUser.m in Sources */,
+				E075260F18F6DFB90061BAE5 /* SMSnatchTableViewCell.m in Sources */,
 				6BDB37C518F671CE005ACE88 /* SVProgressHUD.m in Sources */,
 				E058B28218EAF6650008C328 /* main.m in Sources */,
 				6B5B758E18ED5CBE00B62FF0 /* SMMainViewController.m in Sources */,

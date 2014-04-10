@@ -87,6 +87,13 @@
     NSString *account = _tf_account.text;
     NSString *password = _tf_password.text;
     
+    SMSnatchCarViewController *snavctrl = [[SMSnatchCarViewController alloc] init];
+    UINavigationController *navctrl = [[UINavigationController alloc] initWithRootViewController:snavctrl];
+    [self presentViewController:navctrl animated:YES completion:^{
+        
+    }];
+    return;
+    
     if (!account || [account isEqualToString:@""]) {
         [SVProgressHUD showErrorWithStatus:@"用户名不能为空"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
