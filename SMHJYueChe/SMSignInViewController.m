@@ -10,6 +10,7 @@
 #import "SMMainViewController.h"
 #import "SMPortalUtile.h"
 #import "SVProgressHUD.h"
+#import "SMSnatchCarViewController.h"
 @interface SMSignInViewController()
 
 @property (strong, nonatomic) UITextField *tf_account;
@@ -105,8 +106,15 @@
             int code = [[respDic objectForKey:@"code"] intValue];
             if (code == 0) {
                 NSLog(@"登录成功");
-                SMMainViewController *mainctrl = [[SMMainViewController alloc] init];
-                [self.navigationController pushViewController:mainctrl animated:YES];
+//                SMMainViewController *mainctrl = [[SMMainViewController alloc] init];
+//                [self.navigationController pushViewController:mainctrl animated:YES];
+                
+                SMSnatchCarViewController *snavctrl = [[SMSnatchCarViewController alloc] init];
+                UINavigationController *navctrl = [[UINavigationController alloc] initWithRootViewController:snavctrl];
+                [self presentViewController:navctrl animated:YES completion:^{
+                    
+                }];
+                
             }
         } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [SVProgressHUD dismiss];
