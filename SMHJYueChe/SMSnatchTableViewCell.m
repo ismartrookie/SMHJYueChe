@@ -10,10 +10,6 @@
 
 @interface SMSnatchTableViewCell() {
     
-    UILabel *l_yysd;
-    UIButton *btn_check;
-    UILabel *l_sl;
-    UIButton *btn_yy;
 }
 
 @end
@@ -32,30 +28,68 @@
         [bottomLine setImage:[UIImage imageNamed:@"images.bundle/tcar_snatchCelline.png"]];
         [self.contentView addSubview:bottomLine];
         
-        l_yysd = [[UILabel alloc] init];
-        [l_yysd setFrame:CGRectMake(10, 5, 100, 30)];
-        [l_yysd setText:@"08:00-12:00"];
-        [l_yysd setTextAlignment:NSTextAlignmentCenter];
-        [self.contentView addSubview:l_yysd];
+        _l_yysd = [[UILabel alloc] init];
+        [_l_yysd setFrame:CGRectMake(10, 5, 100, 30)];
+        [_l_yysd setText:@"08:00-12:00"];
+        [_l_yysd setTextAlignment:NSTextAlignmentCenter];
+        [self.contentView addSubview:_l_yysd];
         
-        btn_check = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn_check setFrame:CGRectMake(130, 7, 33, 26)];
-        [btn_check setBackgroundImage:[UIImage imageNamed:@"images.bundle/tcar_selected.png"] forState:UIControlStateNormal];
-        [self.contentView addSubview:btn_check];
+        _btn_check = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_btn_check setFrame:CGRectMake(130, 7, 33, 26)];
+        [_btn_check setBackgroundImage:[UIImage imageNamed:@"images.bundle/tcar_selected.png"] forState:UIControlStateNormal];
+        [self.contentView addSubview:_btn_check];
         
-        l_sl = [[UILabel alloc] init];
-        [l_sl setFrame:CGRectMake(180, 5, 45, 30)];
-        [l_sl setBackgroundColor:[UIColor clearColor]];
-        [l_sl setText:@"256"];
-        [self.contentView addSubview:l_sl];
+        _l_sl = [[UILabel alloc] init];
+        [_l_sl setFrame:CGRectMake(180, 5, 45, 30)];
+        [_l_sl setBackgroundColor:[UIColor clearColor]];
+        [_l_sl setText:@"256"];
+        [self.contentView addSubview:_l_sl];
         
-        btn_yy = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn_yy setFrame:CGRectMake(240, 8, 60, 24)];
-        [btn_yy setBackgroundImage:[UIImage imageNamed:@"images.bundle/tcar_snatchCarBtn.png"] forState:UIControlStateNormal];
-        [self.contentView addSubview:btn_yy];
+        _btn_yy = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_btn_yy setFrame:CGRectMake(240, 8, 60, 24)];
+        [_btn_yy setBackgroundImage:[UIImage imageNamed:@"images.bundle/tcar_snatchCarBtn.png"] forState:UIControlStateNormal];
+        [self.contentView addSubview:_btn_yy];
 
     }
     return self;
+}
+
+- (void)setUiData:(SMEnUIDatas *)uiData
+{
+    [_l_sl setText:[NSString stringWithFormat:@"%d",(int)uiData.SL]];
+    int sl = (int)uiData.SL;
+    if (sl < 1) {
+        [_btn_yy setBackgroundImage:[UIImage imageNamed:@"tcar_indicate_nocar.png"] forState:UIControlStateNormal];
+        [_btn_yy setEnabled:NO];
+    } else {
+        [_btn_yy setBackgroundImage:[UIImage imageNamed:@"tcar_snatchCarBtn.png"] forState:UIControlStateNormal];
+        [_btn_yy setEnabled:YES];
+    }
+    if (uiData.IsBpked) {
+        [_btn_yy setBackgroundImage:[UIImage imageNamed:@"tcar_indicate_caring.png"] forState:UIControlStateNormal];
+        [_btn_yy setEnabled:NO];
+    } else {
+        
+    }
+//    if (uiData.IsBpked) {
+//        [self setBgofBtnyy];
+//    }
+    _uiData = uiData;
+}
+
+//- (void)setBgofBtnyy
+//{
+//    [_btn_yy setBackgroundImage:[UIImage imageNamed:@"images.bundle/tcar_indicate_caring.png"] forState:UIControlStateNormal];
+//}
+
+- (void)setIsSelected:(BOOL)isSelected
+{
+    _isSelected = isSelected;
+    if (isSelected) {
+        [_btn_check setBackgroundImage:[UIImage imageNamed:@"images.bundle/tcar_selected.png"] forState:UIControlStateNormal];
+    } else {
+        [_btn_check setBackgroundImage:[UIImage imageNamed:@"images.bundle/tcar_noselect.png"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)awakeFromNib

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		461E749A1E3E4DE69926DDC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA981656EB0142308C376783 /* libPods.a */; };
 		6B5B758E18ED5CBE00B62FF0 /* SMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5B758D18ED5CBE00B62FF0 /* SMMainViewController.m */; };
-		6B795EB018F551AD009626C2 /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6B795EA818F551AD009626C2 /* images.bundle */; };
 		6B795EB118F551AD009626C2 /* SMEnUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B795EAB18F551AD009626C2 /* SMEnUser.m */; };
 		6B795EB218F551AD009626C2 /* SMEnYCBH.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B795EAD18F551AD009626C2 /* SMEnYCBH.m */; };
 		6B795EB318F551AD009626C2 /* SMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B795EAF18F551AD009626C2 /* SMViewController.m */; };
@@ -32,6 +31,24 @@
 		E058B29B18EAF6650008C328 /* SMHJYueCheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E058B29A18EAF6650008C328 /* SMHJYueCheTests.m */; };
 		E058B2AC18EAF6D60008C328 /* SM_URL_LOG.txt in Resources */ = {isa = PBXBuildFile; fileRef = E058B2A418EAF6D60008C328 /* SM_URL_LOG.txt */; };
 		E075260F18F6DFB90061BAE5 /* SMSnatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E075260E18F6DFB90061BAE5 /* SMSnatchTableViewCell.m */; };
+		E0A2A9C918F92A3500620DA3 /* snatch_titlelogo1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9B818F92A3500620DA3 /* snatch_titlelogo1@2x.png */; };
+		E0A2A9CA18F92A3500620DA3 /* snatch_titlelogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9B918F92A3500620DA3 /* snatch_titlelogo@2x.png */; };
+		E0A2A9CB18F92A3500620DA3 /* snatchCarBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9BA18F92A3500620DA3 /* snatchCarBtn@2x.png */; };
+		E0A2A9CC18F92A3500620DA3 /* tcar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9BB18F92A3500620DA3 /* tcar_background@2x.png */; };
+		E0A2A9CD18F92A3500620DA3 /* tcar_clocklogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9BC18F92A3500620DA3 /* tcar_clocklogo@2x.png */; };
+		E0A2A9CE18F92A3500620DA3 /* tcar_forgetpw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9BD18F92A3500620DA3 /* tcar_forgetpw@2x.png */; };
+		E0A2A9CF18F92A3500620DA3 /* tcar_indicate_caring@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9BE18F92A3500620DA3 /* tcar_indicate_caring@2x.png */; };
+		E0A2A9D018F92A3500620DA3 /* tcar_indicate_nocar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9BF18F92A3500620DA3 /* tcar_indicate_nocar@2x.png */; };
+		E0A2A9D118F92A3500620DA3 /* tcar_inputfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9C018F92A3500620DA3 /* tcar_inputfield@2x.png */; };
+		E0A2A9D218F92A3500620DA3 /* tcar_loginbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9C118F92A3500620DA3 /* tcar_loginbtn@2x.png */; };
+		E0A2A9D318F92A3500620DA3 /* tcar_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9C218F92A3500620DA3 /* tcar_logo@2x.png */; };
+		E0A2A9D418F92A3500620DA3 /* tcar_newuser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9C318F92A3500620DA3 /* tcar_newuser@2x.png */; };
+		E0A2A9D518F92A3500620DA3 /* tcar_noselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9C418F92A3500620DA3 /* tcar_noselect@2x.png */; };
+		E0A2A9D618F92A3500620DA3 /* tcar_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9C518F92A3500620DA3 /* tcar_selected@2x.png */; };
+		E0A2A9D718F92A3500620DA3 /* tcar_snatchCarBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9C618F92A3500620DA3 /* tcar_snatchCarBtn@2x.png */; };
+		E0A2A9D818F92A3500620DA3 /* tcar_snatchCellHead@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9C718F92A3500620DA3 /* tcar_snatchCellHead@2x.png */; };
+		E0A2A9D918F92A3500620DA3 /* tcar_snatchCelline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A2A9C818F92A3500620DA3 /* tcar_snatchCelline@2x.png */; };
+		E0F3265B18F833910054A85F /* SMEnUIDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F3265A18F833910054A85F /* SMEnUIDatas.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +64,6 @@
 /* Begin PBXFileReference section */
 		6B5B758C18ED5CBE00B62FF0 /* SMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMainViewController.h; sourceTree = "<group>"; };
 		6B5B758D18ED5CBE00B62FF0 /* SMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMainViewController.m; sourceTree = "<group>"; };
-		6B795EA818F551AD009626C2 /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
 		6B795EAA18F551AD009626C2 /* SMEnUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMEnUser.h; sourceTree = "<group>"; };
 		6B795EAB18F551AD009626C2 /* SMEnUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMEnUser.m; sourceTree = "<group>"; };
 		6B795EAC18F551AD009626C2 /* SMEnYCBH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMEnYCBH.h; sourceTree = "<group>"; };
@@ -83,6 +99,25 @@
 		E058B2A418EAF6D60008C328 /* SM_URL_LOG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SM_URL_LOG.txt; sourceTree = SOURCE_ROOT; };
 		E075260D18F6DFB90061BAE5 /* SMSnatchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSnatchTableViewCell.h; sourceTree = "<group>"; };
 		E075260E18F6DFB90061BAE5 /* SMSnatchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSnatchTableViewCell.m; sourceTree = "<group>"; };
+		E0A2A9B818F92A3500620DA3 /* snatch_titlelogo1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snatch_titlelogo1@2x.png"; sourceTree = "<group>"; };
+		E0A2A9B918F92A3500620DA3 /* snatch_titlelogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snatch_titlelogo@2x.png"; sourceTree = "<group>"; };
+		E0A2A9BA18F92A3500620DA3 /* snatchCarBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snatchCarBtn@2x.png"; sourceTree = "<group>"; };
+		E0A2A9BB18F92A3500620DA3 /* tcar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_background@2x.png"; sourceTree = "<group>"; };
+		E0A2A9BC18F92A3500620DA3 /* tcar_clocklogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_clocklogo@2x.png"; sourceTree = "<group>"; };
+		E0A2A9BD18F92A3500620DA3 /* tcar_forgetpw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_forgetpw@2x.png"; sourceTree = "<group>"; };
+		E0A2A9BE18F92A3500620DA3 /* tcar_indicate_caring@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_indicate_caring@2x.png"; sourceTree = "<group>"; };
+		E0A2A9BF18F92A3500620DA3 /* tcar_indicate_nocar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_indicate_nocar@2x.png"; sourceTree = "<group>"; };
+		E0A2A9C018F92A3500620DA3 /* tcar_inputfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_inputfield@2x.png"; sourceTree = "<group>"; };
+		E0A2A9C118F92A3500620DA3 /* tcar_loginbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_loginbtn@2x.png"; sourceTree = "<group>"; };
+		E0A2A9C218F92A3500620DA3 /* tcar_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_logo@2x.png"; sourceTree = "<group>"; };
+		E0A2A9C318F92A3500620DA3 /* tcar_newuser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_newuser@2x.png"; sourceTree = "<group>"; };
+		E0A2A9C418F92A3500620DA3 /* tcar_noselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_noselect@2x.png"; sourceTree = "<group>"; };
+		E0A2A9C518F92A3500620DA3 /* tcar_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_selected@2x.png"; sourceTree = "<group>"; };
+		E0A2A9C618F92A3500620DA3 /* tcar_snatchCarBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_snatchCarBtn@2x.png"; sourceTree = "<group>"; };
+		E0A2A9C718F92A3500620DA3 /* tcar_snatchCellHead@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_snatchCellHead@2x.png"; sourceTree = "<group>"; };
+		E0A2A9C818F92A3500620DA3 /* tcar_snatchCelline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcar_snatchCelline@2x.png"; sourceTree = "<group>"; };
+		E0F3265918F833910054A85F /* SMEnUIDatas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMEnUIDatas.h; sourceTree = "<group>"; };
+		E0F3265A18F833910054A85F /* SMEnUIDatas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMEnUIDatas.m; sourceTree = "<group>"; };
 		EA981656EB0142308C376783 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,6 +153,8 @@
 				6B795EAB18F551AD009626C2 /* SMEnUser.m */,
 				6B795EAC18F551AD009626C2 /* SMEnYCBH.h */,
 				6B795EAD18F551AD009626C2 /* SMEnYCBH.m */,
+				E0F3265918F833910054A85F /* SMEnUIDatas.h */,
+				E0F3265A18F833910054A85F /* SMEnUIDatas.m */,
 			);
 			path = SMEntity;
 			sourceTree = "<group>";
@@ -167,8 +204,8 @@
 		E058B27B18EAF6650008C328 /* SMHJYueChe */ = {
 			isa = PBXGroup;
 			children = (
+				E0A2A9B718F92A3500620DA3 /* images */,
 				6BDB37C018F671CE005ACE88 /* SVProgressHUD */,
-				6B795EA818F551AD009626C2 /* images.bundle */,
 				6B795EA918F551AD009626C2 /* SMEntity */,
 				6B795EAE18F551AD009626C2 /* SMViewController.h */,
 				6B795EAF18F551AD009626C2 /* SMViewController.m */,
@@ -219,6 +256,31 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		E0A2A9B718F92A3500620DA3 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				E0A2A9B818F92A3500620DA3 /* snatch_titlelogo1@2x.png */,
+				E0A2A9B918F92A3500620DA3 /* snatch_titlelogo@2x.png */,
+				E0A2A9BA18F92A3500620DA3 /* snatchCarBtn@2x.png */,
+				E0A2A9BB18F92A3500620DA3 /* tcar_background@2x.png */,
+				E0A2A9BC18F92A3500620DA3 /* tcar_clocklogo@2x.png */,
+				E0A2A9BD18F92A3500620DA3 /* tcar_forgetpw@2x.png */,
+				E0A2A9BE18F92A3500620DA3 /* tcar_indicate_caring@2x.png */,
+				E0A2A9BF18F92A3500620DA3 /* tcar_indicate_nocar@2x.png */,
+				E0A2A9C018F92A3500620DA3 /* tcar_inputfield@2x.png */,
+				E0A2A9C118F92A3500620DA3 /* tcar_loginbtn@2x.png */,
+				E0A2A9C218F92A3500620DA3 /* tcar_logo@2x.png */,
+				E0A2A9C318F92A3500620DA3 /* tcar_newuser@2x.png */,
+				E0A2A9C418F92A3500620DA3 /* tcar_noselect@2x.png */,
+				E0A2A9C518F92A3500620DA3 /* tcar_selected@2x.png */,
+				E0A2A9C618F92A3500620DA3 /* tcar_snatchCarBtn@2x.png */,
+				E0A2A9C718F92A3500620DA3 /* tcar_snatchCellHead@2x.png */,
+				E0A2A9C818F92A3500620DA3 /* tcar_snatchCelline@2x.png */,
+			);
+			name = images;
+			path = SMHJYueChe/images;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -301,10 +363,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BDB37C418F671CE005ACE88 /* SVProgressHUD.bundle in Resources */,
+				E0A2A9CF18F92A3500620DA3 /* tcar_indicate_caring@2x.png in Resources */,
+				E0A2A9D018F92A3500620DA3 /* tcar_indicate_nocar@2x.png in Resources */,
+				E0A2A9D618F92A3500620DA3 /* tcar_selected@2x.png in Resources */,
+				E0A2A9C918F92A3500620DA3 /* snatch_titlelogo1@2x.png in Resources */,
+				E0A2A9D718F92A3500620DA3 /* tcar_snatchCarBtn@2x.png in Resources */,
+				E0A2A9D818F92A3500620DA3 /* tcar_snatchCellHead@2x.png in Resources */,
+				E0A2A9CE18F92A3500620DA3 /* tcar_forgetpw@2x.png in Resources */,
 				E058B28018EAF6650008C328 /* InfoPlist.strings in Resources */,
+				E0A2A9CC18F92A3500620DA3 /* tcar_background@2x.png in Resources */,
+				E0A2A9D318F92A3500620DA3 /* tcar_logo@2x.png in Resources */,
+				E0A2A9CB18F92A3500620DA3 /* snatchCarBtn@2x.png in Resources */,
+				E0A2A9D918F92A3500620DA3 /* tcar_snatchCelline@2x.png in Resources */,
+				E0A2A9D118F92A3500620DA3 /* tcar_inputfield@2x.png in Resources */,
 				E058B28818EAF6650008C328 /* Images.xcassets in Resources */,
+				E0A2A9CD18F92A3500620DA3 /* tcar_clocklogo@2x.png in Resources */,
+				E0A2A9D418F92A3500620DA3 /* tcar_newuser@2x.png in Resources */,
+				E0A2A9D518F92A3500620DA3 /* tcar_noselect@2x.png in Resources */,
 				E058B2AC18EAF6D60008C328 /* SM_URL_LOG.txt in Resources */,
-				6B795EB018F551AD009626C2 /* images.bundle in Resources */,
+				E0A2A9D218F92A3500620DA3 /* tcar_loginbtn@2x.png in Resources */,
+				E0A2A9CA18F92A3500620DA3 /* snatch_titlelogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +440,7 @@
 				E03E03A918F58ADD003C593F /* SMSnatchCarViewController.m in Sources */,
 				6BBDED0918ED470B00A30A80 /* SMPortalUtile.m in Sources */,
 				6B795EB318F551AD009626C2 /* SMViewController.m in Sources */,
+				E0F3265B18F833910054A85F /* SMEnUIDatas.m in Sources */,
 				6B795EB118F551AD009626C2 /* SMEnUser.m in Sources */,
 				E075260F18F6DFB90061BAE5 /* SMSnatchTableViewCell.m in Sources */,
 				6BDB37C518F671CE005ACE88 /* SVProgressHUD.m in Sources */,

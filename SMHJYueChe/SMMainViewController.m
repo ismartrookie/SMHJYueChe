@@ -23,8 +23,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    self.xxzh = @"51168515";
+//    self.title = @"51168515/张东风 2014-04-12";
+    
+    
     self.xxzh = @"51168515";
-    self.title = @"51168515/张东风 2014-04-12";
+    self.title = @"51168515/张东风";
+    
+//    NSString *xxzh = @"51168600"; //吴炯红
+
     
     
     //    NSString *xxzh = @"51168449"; //耿震
@@ -57,30 +64,37 @@
     [formatter setDateFormat:@"YYYY-MM-dd"];
     yyrq1 = [formatter stringFromDate:now];
     NSLog(@"当前时间为 ： %@",yyrq1);
-    NSLog(@"now = %@",now.description);
     NSArray *yysds = [NSArray arrayWithObjects:@"812",@"15",@"58", nil];
-    dispatch_apply([yysds count], dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(size_t i) {
-        [SMPortalUtile haijiaYuYueCarsQuerywithYyrq:yyrq1 andYysd:[yysds objectAtIndex:i] andXxzh:_xxzh andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            NSLog(@"可预约车辆 =  %@",operation.responseString);
-            NSDictionary *respDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-            int code = [[respDic objectForKey:@"code"] intValue];
-            if (code == 0) {
-                NSArray *cars = [[respDic objectForKey:@"data"] objectForKey:@"Result"];
-                if ([cars count] == 0) {
-                    NSLog(@"该时段没车了 = %@",[yysds objectAtIndex:i]);
-                    return ;
+    
+    [SMPortalUtile haijiaSystemLoginwithUserName:nil andPassword:nil andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        dispatch_apply([yysds count], dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(size_t i) {
+            [SMPortalUtile haijiaYuYueCarsQuerywithYyrq:yyrq1 andYysd:[yysds objectAtIndex:i] andXxzh:_xxzh andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                //            NSLog(@"可预约车辆 =  %@",operation.responseString);
+                NSDictionary *respDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                int code = [[respDic objectForKey:@"code"] intValue];
+                if (code == 0) {
+                    NSArray *cars = [[respDic objectForKey:@"data"] objectForKey:@"Result"];
+                    if ([cars count] == 0) {
+                        NSLog(@"该时段没车了 = %@",[yysds objectAtIndex:i]);
+                        return ;
+                    }
+                    dispatch_apply([cars count], dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(size_t j) {
+                        NSString *CNBH = [[cars objectAtIndex:j] objectForKey:@"CNBH"];
+                        [self cyclerRequestYuyueCarWithXxzh:_xxzh andClbh:CNBH andYyrq:yyrq1 andYysd:[yysds objectAtIndex:i]];
+                    });
+                } else {
+                    NSLog(@"ErroMessage = %@",[respDic objectForKey:@"message"]);
                 }
-                dispatch_apply([cars count], dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(size_t j) {
-                    NSString *CNBH = [[cars objectAtIndex:j] objectForKey:@"CNBH"];
-                    [self cyclerRequestYuyueCarWithXxzh:_xxzh andClbh:CNBH andYyrq:yyrq1 andYysd:[yysds objectAtIndex:i]];
-                });
-            } else {
-                NSLog(@"ErroMessage = %@",[respDic objectForKey:@"message"]);
-            }
-        } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            ;
-        }];
-    });
+            } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                ;
+            }];
+        });
+    } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        ;
+    }];
+    
+    
     
 }
 
@@ -98,6 +112,7 @@
         } else if (code == 1) {
             //非预约开放时间
             NSString *message = [resDict objectForKey:@"message"];
+//            NSLog(@"message = %@",message);
             if (!self.hasBook && [message isEqualToString:@"非预约开放时间\r\n\r\n"]) {
                 [self cyclerRequestYuyueCarWithXxzh:xxzh andClbh:clbh andYyrq:yyrq andYysd:yysd];
             }

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SMViewController.h"
 #import "SMSignInViewController.h"
+#import "SMMainViewController.h"
 
 @implementation AppDelegate
 
@@ -18,12 +19,19 @@
     
 //    SMViewController *vctrl = [[SMViewController alloc] init];
 //    UINavigationController *navictrl = [[UINavigationController alloc] initWithRootViewController:vctrl];
-
-    SMSignInViewController *signInvctrl = [[SMSignInViewController alloc] init];
-//    UINavigationController *navictrl = [[UINavigationController alloc] initWithRootViewController:signInvctrl];
-    [self.window setRootViewController:signInvctrl];
-    
 //    [self.window setRootViewController:navictrl];
+    
+//    SMMainViewController *mainvctrl = [[SMMainViewController alloc] init];
+//    UINavigationController *mnav = [[UINavigationController alloc] initWithRootViewController:mainvctrl];
+//    [self.window setRootViewController:mnav];
+    
+    SMSignInViewController *signInvctrl = [[SMSignInViewController alloc] init];
+    UINavigationController *navictrl = [[UINavigationController alloc] initWithRootViewController:signInvctrl];
+    [self.window setRootViewController:navictrl];
+    
+    
+    
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

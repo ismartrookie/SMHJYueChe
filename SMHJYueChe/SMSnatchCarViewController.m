@@ -8,6 +8,7 @@
 
 #import "SMSnatchCarViewController.h"
 #import "SMSnatchTableViewCell.h"
+#import "SMEnUIDatas.h"
 
 @interface SMSnatchCarViewController ()<UITableViewDelegate,UITableViewDataSource> {
     UITableView *tableview;
@@ -17,11 +18,37 @@
     UILabel *l_daytime;
     
     UIButton *snatchBtn;
+    
+    NSArray *xnsdList;
+    NSArray *yyrqList;
+    NSArray *uIDatas;
+    
+    NSMutableArray *selectedTag;
 }
 
 @end
 
 @implementation SMSnatchCarViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
+- (void)setTimeSections:(NSDictionary *)timeSections
+{
+    _timeSections = timeSections;
+    if (timeSections) {
+        xnsdList = timeSections[@"XnsdList"];
+        yyrqList = timeSections[@"YyrqList"];
+        uIDatas = timeSections[@"UIDatas"];
+        
+        selectedTag = [NSMutableArray arrayWithCapacity:[uIDatas count]];
+        for (int i = 0; i < [uIDatas count]; i++) {
+            [selectedTag addObject:@false];
+        }
+    }
+}
 
 - (void)viewDidLoad
 {
@@ -31,13 +58,13 @@
     
     UIImageView *backgroundv = [[UIImageView alloc] init];
     [backgroundv setFrame:CGRectMake(0, 0, 320, 568)];
-    [backgroundv setImage:[UIImage imageNamed:@"images.bundle/tcar_background.png"]];
+    [backgroundv setImage:[UIImage imageNamed:@"tcar_background.png"]];
     [self.view addSubview:backgroundv];
     
     UIImageView *clocklogo = [[UIImageView alloc] init];
     [clocklogo setFrame:CGRectMake(0, 0, 48, 48)];
     [clocklogo setCenter:CGPointMake(160, 100)];
-    [clocklogo setImage:[UIImage imageNamed:@"images.bundle/tcar_clocklogo.png"]];
+    [clocklogo setImage:[UIImage imageNamed:@"tcar_clocklogo.png"]];
     [self.view addSubview:clocklogo];
     
     l_nowtime = [[UILabel alloc] init];
@@ -58,7 +85,7 @@
     
     snatchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [snatchBtn setFrame:CGRectMake(15, CGRectGetHeight(self.view.frame)-70, 290, 42)];
-    [snatchBtn setBackgroundImage:[UIImage imageNamed:@"images.bundle/snatchCarBtn.png"] forState:UIControlStateNormal];
+    [snatchBtn setBackgroundImage:[UIImage imageNamed:@"snatchCarBtn.png"] forState:UIControlStateNormal];
     [self.view addSubview:snatchBtn];
     
     
@@ -74,16 +101,17 @@
     [self.view addSubview:tableview];
     
     tableDataArr = @[@"一",@"二",@"三",@"四",@"五",@"六",@"七"];
-    
+
+    self.timeSections = self.timeSections;
 }
 #pragma mark -UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 7;
+    return [yyrqList count];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [xnsdList count];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -94,11 +122,19 @@
 {
     UIImageView *headerview = [[UIImageView alloc] init];
     [headerview setFrame:CGRectMake(0, 0, 320, 24)];
-    [headerview setImage:[UIImage imageNamed:@"images.bundle/tcar_snatchCellHead.png"]];
+    [headerview setImage:[UIImage imageNamed:@"tcar_snatchCellHead.png"]];
     
     UILabel *l_header = [[UILabel alloc] init];
     [l_header setFrame:headerview.frame];
-    [l_header setText:@"    Date : 2014.04.05 周一"];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+    NSString *yyrq =[yyrqList[section] objectForKey:@"Yyrq"];
+    NSDate *date = [formatter dateFromString:yyrq];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString = [formatter stringFromDate:date];
+    
+    [l_header setText:[NSString stringWithFormat:@"    Date : %@ %@",dateString,[yyrqList[section] objectForKey:@"DisplayWeek"]]];
     [l_header setTextColor:[UIColor whiteColor]];
     [headerview addSubview:l_header];
     return headerview;
@@ -115,9 +151,35 @@
     SMSnatchTableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[SMSnatchTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        [cell.btn_check addTarget:self action:@selector(cellCheckBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     }
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    [cell.l_yysd setText:[xnsdList[row] objectForKey:@"XnsdName"]];
+    
+    NSInteger number = (section * 3) +row;
+    [cell.btn_check setTag:number];
+    
+    NSDictionary *uiDataDic = [uIDatas objectAtIndex:number];
+    SMEnUIDatas *uiData = [[SMEnUIDatas alloc] init];
+    [uiData setYyrq:[uiDataDic objectForKey:@"Yyrq"]];
+    [uiData setXnsd:[uiDataDic objectForKey:@"Xnsd"]];
+    [uiData setSL:[[uiDataDic objectForKey:@"SL"] intValue]];
+    [uiData setIsBpked:[[uiDataDic objectForKey:@"IsBpked"] boolValue]];
+    
+    NSLog(@"cell isBpked = %d  andnumber = %d",uiData.IsBpked,(int)number);
+    
+    [cell setUiData:uiData];
+    cell.isSelected = [[selectedTag objectAtIndex:number] boolValue];
     
     return cell;
+}
+
+- (void)cellCheckBtnAction:(UIButton *)sender
+{
+    BOOL selected = [selectedTag[sender.tag] boolValue];
+    [selectedTag replaceObjectAtIndex:sender.tag withObject:[NSNumber numberWithBool:!selected]];
+    [tableview reloadData];
 }
 
 

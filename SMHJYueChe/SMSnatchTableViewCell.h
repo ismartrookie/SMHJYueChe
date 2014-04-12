@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMEntity/SMEnUIDatas.h"
 
 @interface SMSnatchTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) UILabel *l_yysd;
+@property (strong, nonatomic) UIButton *btn_check;
+@property (strong, nonatomic) UILabel *l_sl;
+@property (strong, nonatomic) UIButton *btn_yy;
+
+@property (strong, nonatomic) SMEnUIDatas *uiData;
+@property (assign, nonatomic) BOOL isSelected;
 
 @end

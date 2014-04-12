@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMEntity/SMEnUser.h"
 
 @interface SMSnatchCarViewController : UIViewController
+
+@property (strong, nonatomic) SMEnUser *user;
+@property (strong, nonatomic) NSDictionary *timeSections;
 
 @end
