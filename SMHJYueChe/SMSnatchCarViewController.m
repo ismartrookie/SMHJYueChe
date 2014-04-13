@@ -9,10 +9,11 @@
 #import "SMSnatchCarViewController.h"
 #import "SMSnatchTableViewCell.h"
 #import "SMEnUIDatas.h"
+#import "SMPortalUtile.h"
+#import "SVProgressHUD.h"
 
 @interface SMSnatchCarViewController ()<UITableViewDelegate,UITableViewDataSource> {
     UITableView *tableview;
-    NSArray *tableDataArr;
     
     UILabel *l_nowtime;
     UILabel *l_daytime;
@@ -25,6 +26,10 @@
     
     NSMutableArray *selectedTag;
 }
+
+@property (assign, nonatomic) BOOL isSnatchEnd;
+@property (assign, nonatomic) int snatchCount;
+@property (assign, nonatomic) BOOL hasBook;
 
 @end
 
@@ -87,6 +92,7 @@
     [snatchBtn setFrame:CGRectMake(15, CGRectGetHeight(self.view.frame)-70, 290, 42)];
     [snatchBtn setBackgroundImage:[UIImage imageNamed:@"snatchCarBtn.png"] forState:UIControlStateNormal];
     [self.view addSubview:snatchBtn];
+    [snatchBtn addTarget:self action:@selector(snatchButtonFunction:) forControlEvents:UIControlEventTouchUpInside];
     
     
     tableview = ({
@@ -99,8 +105,6 @@
         _tableview;
     });
     [self.view addSubview:tableview];
-    
-    tableDataArr = @[@"一",@"二",@"三",@"四",@"五",@"六",@"七"];
 
     self.timeSections = self.timeSections;
 }
@@ -167,8 +171,6 @@
     [uiData setSL:[[uiDataDic objectForKey:@"SL"] intValue]];
     [uiData setIsBpked:[[uiDataDic objectForKey:@"IsBpked"] boolValue]];
     
-    NSLog(@"cell isBpked = %d  andnumber = %d",uiData.IsBpked,(int)number);
-    
     [cell setUiData:uiData];
     cell.isSelected = [[selectedTag objectAtIndex:number] boolValue];
     
@@ -181,6 +183,111 @@
     [selectedTag replaceObjectAtIndex:sender.tag withObject:[NSNumber numberWithBool:!selected]];
     [tableview reloadData];
 }
+
+- (void)snatchButtonFunction:(UIButton *)sender
+{
+    NSMutableArray *needSnatchArr = [NSMutableArray array];
+    for (int i = 0; i < [selectedTag count]; i++) {
+        BOOL tag = [selectedTag[i] boolValue];
+        if (tag) {
+            [needSnatchArr addObject:uIDatas[i]];
+        }
+    }
+//    NSLog(@"needSnatchArr = %@",needSnatchArr);
+    if ([needSnatchArr count] == 0) {
+        [SVProgressHUD showErrorWithStatus:@"你没有选择任何需要抢约的时段!" duration:2];
+        return;
+    }
+    [SVProgressHUD showWithStatus:@"开始约车,手不要抖!" maskType:SVProgressHUDMaskTypeBlack];
+    _snatchCount = 0;
+    self.hasBook = NO;
+    dispatch_apply([needSnatchArr count], dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(size_t i) {
+        
+        NSString *xnsd =  [needSnatchArr[i] objectForKey:@"Xnsd"];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+        NSString *yyrq =[needSnatchArr[i] objectForKey:@"Yyrq"];
+        NSDate *date = [formatter dateFromString:yyrq];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        yyrq = [formatter stringFromDate:date];
+        NSLog(@"yyrq = %@",yyrq);
+        [SMPortalUtile haijiaYuYueCarsQuerywithYyrq:yyrq andYysd:xnsd andXxzh:_user.xxzh andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *respDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+            int code = [[respDic objectForKey:@"code"] intValue];
+            if (code == 0) {
+                NSArray *cars = [[respDic objectForKey:@"data"] objectForKey:@"Result"];
+                if ([cars count] == 0) {
+                    if ([needSnatchArr count] == i+1 && _snatchCount == 0) {
+                        _snatchCount = 1;
+                        self.snatchCount--;
+                    }
+                    NSLog(@"该时段没车了 = %@",xnsd);
+                    return ;
+                }
+                _snatchCount += [cars count];
+                dispatch_apply([cars count], dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(size_t j) {
+                    NSString *CNBH = [[cars objectAtIndex:j] objectForKey:@"CNBH"];
+                    [self cyclerRequestYuyueCarWithXxzh:_user.xxzh andClbh:CNBH andYyrq:yyrq andYysd:xnsd];
+                });
+            } else {
+                NSLog(@"ErroMessage = %@",[respDic objectForKey:@"message"]);
+            }
+        } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            ;
+        }];
+    });
+    
+    
+}
+
+- (void)cyclerRequestYuyueCarWithXxzh:(NSString *)xxzh andClbh:(NSString *)clbh andYyrq:(NSString *)yyrq andYysd:yysd
+{
+    [SMPortalUtile haijiaYuYueCarwithXxzh:xxzh andClbh:clbh andYyrq:yyrq andYysd:yysd andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *resDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        int code = [[resDict objectForKey:@"code"] intValue];
+        if (code == 0) {
+            //预约成功
+            self.hasBook = YES;
+            [SVProgressHUD dismiss];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [NSString stringWithFormat:@"预约成功 车辆号:%@ 时段:%@",clbh,yysd];
+                UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"恭喜您" message:@"预约成功 车辆号:" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertview show];
+            });
+        } else if (code == 1) {
+            //非预约开放时间
+            NSString *message = [resDict objectForKey:@"message"];
+            if (!self.hasBook && [message isEqualToString:@"非预约开放时间\r\n\r\n"]) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD setStatus:[NSString stringWithFormat:@"%@ 车号:%@ -- %@ 时段 -- %@",yyrq,clbh, message,yysd]];
+                });
+                [self cyclerRequestYuyueCarWithXxzh:xxzh andClbh:clbh andYyrq:yyrq andYysd:yysd];
+            } else {
+                self.snatchCount--;
+            }
+        } else {
+            return ;
+        }
+    } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (!self.hasBook) {
+            [self cyclerRequestYuyueCarWithXxzh:xxzh andClbh:clbh andYyrq:yyrq andYysd:yysd];
+        }
+    }];
+}
+
+- (void)setSnatchCount:(int)snatchCount
+{
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (_snatchCount == 1 && snatchCount <= 0) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismissWithError:@"很抱歉,此轮约车已经结束!" afterDelay:3];
+            });
+        }
+        _snatchCount = snatchCount;
+    });
+    
+}
+
 
 
 

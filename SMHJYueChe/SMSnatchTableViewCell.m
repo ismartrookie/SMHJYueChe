@@ -60,35 +60,22 @@
     int sl = (int)uiData.SL;
     if (sl < 1) {
         [_btn_yy setBackgroundImage:[UIImage imageNamed:@"tcar_indicate_nocar.png"] forState:UIControlStateNormal];
-        [_btn_yy setEnabled:NO];
     } else {
         [_btn_yy setBackgroundImage:[UIImage imageNamed:@"tcar_snatchCarBtn.png"] forState:UIControlStateNormal];
-        [_btn_yy setEnabled:YES];
     }
     if (uiData.IsBpked) {
         [_btn_yy setBackgroundImage:[UIImage imageNamed:@"tcar_indicate_caring.png"] forState:UIControlStateNormal];
-        [_btn_yy setEnabled:NO];
-    } else {
-        
     }
-//    if (uiData.IsBpked) {
-//        [self setBgofBtnyy];
-//    }
     _uiData = uiData;
 }
-
-//- (void)setBgofBtnyy
-//{
-//    [_btn_yy setBackgroundImage:[UIImage imageNamed:@"images.bundle/tcar_indicate_caring.png"] forState:UIControlStateNormal];
-//}
 
 - (void)setIsSelected:(BOOL)isSelected
 {
     _isSelected = isSelected;
     if (isSelected) {
-        [_btn_check setBackgroundImage:[UIImage imageNamed:@"images.bundle/tcar_selected.png"] forState:UIControlStateNormal];
+        [_btn_check setBackgroundImage:[UIImage imageNamed:@"tcar_selected.png"] forState:UIControlStateNormal];
     } else {
-        [_btn_check setBackgroundImage:[UIImage imageNamed:@"images.bundle/tcar_noselect.png"] forState:UIControlStateNormal];
+        [_btn_check setBackgroundImage:[UIImage imageNamed:@"tcar_noselect.png"] forState:UIControlStateNormal];
     }
 }
 
