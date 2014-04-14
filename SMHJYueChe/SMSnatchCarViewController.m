@@ -242,37 +242,39 @@
 
 - (void)cyclerRequestYuyueCarWithXxzh:(NSString *)xxzh andClbh:(NSString *)clbh andYyrq:(NSString *)yyrq andYysd:yysd
 {
-    [SMPortalUtile haijiaYuYueCarwithXxzh:xxzh andClbh:clbh andYyrq:yyrq andYysd:yysd andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *resDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        int code = [[resDict objectForKey:@"code"] intValue];
-        if (code == 0) {
-            //预约成功
-            self.hasBook = YES;
-            [SVProgressHUD dismiss];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [NSString stringWithFormat:@"预约成功 车辆号:%@ 时段:%@",clbh,yysd];
-                UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"恭喜您" message:@"预约成功 车辆号:" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-                [alertview show];
-            });
-        } else if (code == 1) {
-            //非预约开放时间
-            NSString *message = [resDict objectForKey:@"message"];
-            if (!self.hasBook && [message isEqualToString:@"非预约开放时间\r\n\r\n"]) {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [SMPortalUtile haijiaYuYueCarwithXxzh:xxzh andClbh:clbh andYyrq:yyrq andYysd:yysd andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *resDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+            int code = [[resDict objectForKey:@"code"] intValue];
+            if (code == 0) {
+                //预约成功
+                self.hasBook = YES;
+                [SVProgressHUD dismiss];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [SVProgressHUD setStatus:[NSString stringWithFormat:@"%@ 车号:%@ -- %@ 时段 -- %@",yyrq,clbh, message,yysd]];
+                    [NSString stringWithFormat:@"预约成功 车辆号:%@ 时段:%@",clbh,yysd];
+                    UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"恭喜您" message:@"预约成功 车辆号:" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                    [alertview show];
                 });
-                [self cyclerRequestYuyueCarWithXxzh:xxzh andClbh:clbh andYyrq:yyrq andYysd:yysd];
+            } else if (code == 1) {
+                //非预约开放时间
+                NSString *message = [resDict objectForKey:@"message"];
+                if (!self.hasBook && [message isEqualToString:@"非预约开放时间\r\n\r\n"]) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [SVProgressHUD setStatus:[NSString stringWithFormat:@"%@ 车号:%@ -- %@ 时段 -- %@",yyrq,clbh, message,yysd]];
+                    });
+                    [self cyclerRequestYuyueCarWithXxzh:xxzh andClbh:clbh andYyrq:yyrq andYysd:yysd];
+                } else {
+                    self.snatchCount--;
+                }
             } else {
-                self.snatchCount--;
+                return ;
             }
-        } else {
-            return ;
-        }
-    } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (!self.hasBook) {
-            [self cyclerRequestYuyueCarWithXxzh:xxzh andClbh:clbh andYyrq:yyrq andYysd:yysd];
-        }
-    }];
+        } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (!self.hasBook) {
+                [self cyclerRequestYuyueCarWithXxzh:xxzh andClbh:clbh andYyrq:yyrq andYysd:yysd];
+            }
+        }];
+    });
 }
 
 - (void)setSnatchCount:(int)snatchCount

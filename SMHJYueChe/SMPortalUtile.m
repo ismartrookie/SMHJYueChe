@@ -11,7 +11,7 @@
 #define   SM_XIN_YUE_BJXC_PORTAL      @"http://xinyue.bjxueche.net:8005"
 #define   SM_HAI_JIA_BJXC_PORTAL      @"http://haijia.bjxueche.net:8001"
 
-#define   SM_TIME_OUT   3
+#define   SM_TIME_OUT   10
 
 @interface SMPortalUtile()
 
@@ -28,15 +28,11 @@
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:loginRequest];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (success) {
-                dispatch_async(dispatch_get_main_queue(), ^{
                     success(operation,responseObject);
-                });
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             if (failure) {
-                dispatch_sync(dispatch_get_main_queue(), ^{
                     failure(operation,error);
-                });
             }
         }];
         [operation start];
@@ -52,15 +48,11 @@
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:loginRequest];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (success) {
-                dispatch_async(dispatch_get_main_queue(), ^{
                     success(operation,responseObject);
-                });
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             if (failure) {
-                dispatch_sync(dispatch_get_main_queue(), ^{
                     failure(operation,error);
-                });
             }
         }];
         [operation start];
@@ -77,15 +69,11 @@
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:loginRequest];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (success) {
-                dispatch_async(dispatch_get_main_queue(), ^{
                     success(operation,responseObject);
-                });
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             if (failure) {
-                dispatch_sync(dispatch_get_main_queue(), ^{
                     failure(operation,error);
-                });
             }
         }];
         [operation start];
@@ -102,15 +90,11 @@
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:loginRequest];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (success) {
-                dispatch_async(dispatch_get_main_queue(), ^{
                     success(operation,responseObject);
-                });
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             if (failure) {
-                dispatch_sync(dispatch_get_main_queue(), ^{
                     failure(operation,error);
-                });
             }
         }];
         [operation start];
@@ -127,15 +111,11 @@
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:loginRequest];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (success) {
-                dispatch_async(dispatch_get_main_queue(), ^{
                     success(operation,responseObject);
-                });
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             if (failure) {
-                dispatch_sync(dispatch_get_main_queue(), ^{
                     failure(operation,error);
-                });
             }
         }];
         [operation start];
@@ -145,27 +125,20 @@
 
 + (void)haijiaYuYueCarwithXxzh:(NSString *)xxzh andClbh:(NSString *)clbh andYyrq:(NSString *)yyrq andYysd:(NSString *)yysd andSuccess:(success)success andFailure:(failure)failure
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    
         NSString *urlString = [NSString stringWithFormat:@"%@/KM2/ClYyAddByMutil?xxzh=%@&params=%@.%@.%@..&isJcsdYyMode=5",SM_HAI_JIA_BJXC_PORTAL,xxzh,clbh,yyrq,yysd];
         NSMutableURLRequest *loginRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
         [loginRequest setTimeoutInterval:SM_TIME_OUT];
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:loginRequest];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             if (success) {
-                dispatch_async(dispatch_get_main_queue(), ^{
                     success(operation,responseObject);
-                });
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             if (failure) {
-                dispatch_sync(dispatch_get_main_queue(), ^{
                     failure(operation,error);
-                });
             }
         }];
         [operation start];
-    });
     
 }
 
