@@ -168,38 +168,6 @@
             NSLog(@"error = %@",error.description);
             [SVProgressHUD dismissWithError:@"登录错误" afterDelay:2];
         }];
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       /*
-        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
-        [SMPortalUtile haijiaSystemLoginwithUserName:nil andPassword:nil andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD dismiss];
-            NSDictionary *respDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-            int code = [[respDic objectForKey:@"code"] intValue];
-            if (code == 0) {
-                NSLog(@"登录成功");
-//                SMMainViewController *mainctrl = [[SMMainViewController alloc] init];
-//                [self.navigationController pushViewController:mainctrl animated:YES];
-                
-                SMSnatchCarViewController *snavctrl = [[SMSnatchCarViewController alloc] init];
-                UINavigationController *navctrl = [[UINavigationController alloc] initWithRootViewController:snavctrl];
-                [self presentViewController:navctrl animated:YES completion:^{
-                    
-                }];
-                
-            }
-        } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [SVProgressHUD dismiss];
-        }];
-        */
     }
 }
 
