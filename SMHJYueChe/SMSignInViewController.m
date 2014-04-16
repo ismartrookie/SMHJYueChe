@@ -12,6 +12,8 @@
 #import "SVProgressHUD.h"
 #import "SMSnatchCarViewController.h"
 #import "SMEnUser.h"
+#import "SMShareCenter.h"
+
 @interface SMSignInViewController()
 
 @property (strong, nonatomic) UITextField *tf_account;
@@ -75,7 +77,6 @@
     [newuserBtn setFrame:CGRectMake(320-80, CGRectGetMaxY(self.view.frame)-50, 80, 30)];
     [newuserBtn setImage:[UIImage imageNamed:@"tcar_newuser.png"] forState:UIControlStateNormal];
     [self.view addSubview:newuserBtn];
-
 
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     [backItem setTitle:@"返回"];
@@ -147,10 +148,16 @@
                             [SVProgressHUD dismiss];
                             NSLog(@"TimeSectionQuery Info = %@",operation.responseString);
                             //开始跳转
-                            SMSnatchCarViewController *snavctrl = [[SMSnatchCarViewController alloc] init];
-                            [self.navigationController pushViewController:snavctrl animated:YES];
-                            snavctrl.user = user;
-                            snavctrl.timeSections = [[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil] objectForKey:@"data"];
+//                            SMSnatchCarViewController *snavctrl = [[SMSnatchCarViewController alloc] init];
+//                            [self.navigationController pushViewController:snavctrl animated:YES];
+//                            snavctrl.user = user;
+//
+                            NSDictionary *timeSections = [[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil] objectForKey:@"data"];
+                            [[SMShareCenter sharedInstance] setIsLogin:YES];
+                            [[SMShareCenter sharedInstance] setUser:user];
+                            [[SMShareCenter sharedInstance] setTimeSections:timeSections];
+                            [self dismissViewControllerAnimated:NO completion:^{
+                            }];
                             
                         } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
                             [SVProgressHUD dismissWithError:@"TimeSection 查询异常" afterDelay:2];

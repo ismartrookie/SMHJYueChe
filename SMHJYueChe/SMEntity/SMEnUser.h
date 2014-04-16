@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SMEnUser : NSObject
+@interface SMEnUser : NSObject<NSCoding,NSCopying>
 
 @property (copy, nonatomic) NSString * userName;
 @property (copy, nonatomic) NSString * phoneNum;

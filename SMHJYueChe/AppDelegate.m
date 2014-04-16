@@ -10,6 +10,7 @@
 #import "SMViewController.h"
 #import "SMSignInViewController.h"
 #import "SMMainViewController.h"
+#import "SMSnatchCarViewController.h"
 
 @implementation AppDelegate
 
@@ -25,9 +26,16 @@
 //    UINavigationController *mnav = [[UINavigationController alloc] initWithRootViewController:mainvctrl];
 //    [self.window setRootViewController:mnav];
     
-    SMSignInViewController *signInvctrl = [[SMSignInViewController alloc] init];
-    UINavigationController *navictrl = [[UINavigationController alloc] initWithRootViewController:signInvctrl];
+//    SMSignInViewController *signInvctrl = [[SMSignInViewController alloc] init];
+//    UINavigationController *navictrl = [[UINavigationController alloc] initWithRootViewController:signInvctrl];
+//    [self.window setRootViewController:navictrl];
+    
+    
+    //抢车界面
+    SMSnatchCarViewController *snatchVctrl = [[SMSnatchCarViewController alloc] init];
+    UINavigationController *navictrl = [[UINavigationController alloc] initWithRootViewController:snatchVctrl];
     [self.window setRootViewController:navictrl];
+    
     
     
     

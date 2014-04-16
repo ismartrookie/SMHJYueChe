@@ -11,6 +11,8 @@
 #import "SMEnUIDatas.h"
 #import "SMPortalUtile.h"
 #import "SVProgressHUD.h"
+#import "SMSignInViewController.h"
+#import "SMShareCenter.h"
 
 @interface SMSnatchCarViewController ()<UITableViewDelegate,UITableViewDataSource> {
     UITableView *tableview;
@@ -19,7 +21,6 @@
     UILabel *l_daytime;
     
     UIButton *snatchBtn;
-    
     NSArray *xnsdList;
     NSArray *yyrqList;
     NSArray *uIDatas;
@@ -35,9 +36,28 @@
 
 @implementation SMSnatchCarViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO];
+    
+    if (![[SMShareCenter sharedInstance] isLogin]) {
+        SMSignInViewController *signInvc = [[SMSignInViewController alloc] init];
+        [self presentViewController:signInvc animated:NO completion:^{
+            ;
+        }];
+    } else {
+        self.timeSections = [[SMShareCenter sharedInstance] timeSections];
+        self.user = [[SMShareCenter sharedInstance] user];
+    }
 }
 
 - (void)setTimeSections:(NSDictionary *)timeSections
@@ -107,7 +127,35 @@
     [self.view addSubview:tableview];
 
     self.timeSections = self.timeSections;
+    
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshAction:)];
+    [rightBarButton setTintColor:[UIColor whiteColor]];
+    [self.navigationItem setRightBarButtonItem:rightBarButton];
+    
+    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithTitle:@"转赠" style:UIBarButtonItemStylePlain target:self action:@selector(changeYYCLMaster:)];
+    [leftBarButton setTintColor:[UIColor whiteColor]];
+    [self.navigationItem setLeftBarButtonItem:leftBarButton];
+    
 }
+
+- (void)changeYYCLMaster:(UIBarButtonItem *)sender
+{
+
+}
+
+- (void)refreshAction:(UIBarButtonItem *)sender
+{
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+    [SMPortalUtile haijiaYuYueTimeSectionQuerywithXxzh:self.user.xxzh andSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+        NSDictionary *timeSections = [[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil] objectForKey:@"data"];
+        self.timeSections = timeSections;
+        [tableview reloadData];
+    } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD dismissWithError:@"TimeSection 查询异常" afterDelay:2];
+    }];
+}
+
 #pragma mark -UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -259,9 +307,11 @@
                 //非预约开放时间
                 NSString *message = [resDict objectForKey:@"message"];
                 if (!self.hasBook && [message isEqualToString:@"非预约开放时间\r\n\r\n"]) {
+                    /*
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [SVProgressHUD setStatus:[NSString stringWithFormat:@"%@ 车号:%@ -- %@ 时段 -- %@",yyrq,clbh, message,yysd]];
                     });
+                     */
                     [self cyclerRequestYuyueCarWithXxzh:xxzh andClbh:clbh andYyrq:yyrq andYysd:yysd];
                 } else {
                     self.snatchCount--;
