@@ -17,6 +17,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //阻止设备自动锁屏。 
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
 //    SMViewController *vctrl = [[SMViewController alloc] init];
 //    UINavigationController *navictrl = [[UINavigationController alloc] initWithRootViewController:vctrl];
