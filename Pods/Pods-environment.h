@@ -60,3 +60,9 @@
 #define COCOAPODS_VERSION_MINOR_Reachability 1
 #define COCOAPODS_VERSION_PATCH_Reachability 1
 
+// ViewDeck
+#define COCOAPODS_POD_AVAILABLE_ViewDeck
+#define COCOAPODS_VERSION_MAJOR_ViewDeck 2
+#define COCOAPODS_VERSION_MINOR_ViewDeck 2
+#define COCOAPODS_VERSION_PATCH_ViewDeck 11
+

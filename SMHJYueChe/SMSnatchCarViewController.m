@@ -297,8 +297,8 @@
             if (code == 0) {
                 //预约成功
                 self.hasBook = YES;
-                [SVProgressHUD dismiss];
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
                     [NSString stringWithFormat:@"预约成功 车辆号:%@ 时段:%@",clbh,yysd];
                     UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"恭喜您" message:@"预约成功 车辆号:" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
                     [alertview show];
